@@ -59,10 +59,11 @@
         <div class="flex-center position-ref full-height">
                 <div class="content">
                 <div class="links">
+                <h3>欢迎使用GitHub登录</h3>
                     <h2>
-                    <a href="https://github.com/login/oauth/authorize?client_id=85ce8a41ed8a7a2912b6&redirect_uri=http://passport.1906.com/github/callback">
+                    <a href="https://github.com/login/oauth/authorize?client_id=3b96bf63d4c45b602570&redirect_uri=http://team.1910.com/github/callback">
                         <img src="/timg.jfif" width="150px" height="150px" style="border-radius:50%;overflow:hidden;"><br>
-                        GitHub
+                        GitHub  
                     </a>
                     </h2>
                 </div>
