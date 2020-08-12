@@ -32,7 +32,7 @@ class GoodsController extends AdminController
         $grid->column('keywords', __('关键字'));
         $grid->column('goods_number', __('库存'));
         $grid->column('shop_price', __('商品单价'));
-        $grid->column('goods_img', __('商品图片'));
+        $grid->column('goods_img', __('商品图片'))->image();
         $grid->column('goods_desc', __('商品详情'));
         $grid->column('sale_num', __('销售量'));
         $grid->column('is_new', __('是否新品'));
@@ -79,7 +79,7 @@ class GoodsController extends AdminController
         $form->text('keywords', __('关键字'));
         $form->number('goods_number', __('商品库存'));
         $form->decimal('shop_price', __('商品单价'))->default(0.00);
-        $form->text('goods_img', __('商品图片'));
+        $form->file('goods_img', __('商品图片'));
         $form->text('goods_desc', __('商品详情'));
         $form->switch('is_new', __('Is new'))->default(1);
         $form->switch('is_hot', __('Is hot'));

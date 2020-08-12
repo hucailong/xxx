@@ -32,7 +32,7 @@
 <div class="navbar-top">
     <!-- site brand	 -->
     <div class="site-brand">
-        <a href="{{url('index/index')}}"><h1>Mstore</h1></a>
+        <a href="{{url('/')}}"><h1>Mstore</h1></a>
     </div>
     <!-- end site brand	 -->
     <div class="side-nav-panel-right">
