@@ -49,4 +49,6 @@ Route::prefix('/index')->group(function (){
 Route::get('/vedioCron','Index\VedioCron@codec');
 
 
+Route::get('github','GitHubController@index'); //github视图
+
 
