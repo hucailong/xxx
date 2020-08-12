@@ -11,8 +11,9 @@ class Product_listController extends Controller
     //
     public function index(){
 //        $this->product_info();
-        $is_now = GoodsModel::where('is_new',1)->orderBy('goods_id','DESC')->limit(4)->get()->toArray();
-        $is_hot = GoodsModel::where('is_hot',1)->orderBy('sale_num','DESC')->limit(4)->get()->toArray();
+        $is_now = GoodsModel::where('is_new',1)->orderBy('goods_id','DESC')->limit(6)->get()->toArray();
+
+        $is_hot = GoodsModel::where('is_hot',1)->orderBy('sale_num','DESC')->limit(6)->get()->toArray();
         return view('Index.index',['is_now'=>$is_now,'is_hot'=>$is_hot]);
     }
 
