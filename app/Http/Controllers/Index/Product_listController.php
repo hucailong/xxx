@@ -9,15 +9,61 @@ use App\Model\Admin\VideoModel;
 use Illuminate\Support\Facades\Redis;
 class Product_listController extends Controller
 {
-
-    //前台首页
     public function index(){
+        //文件名
+        $fileName = "buffer.html";
+        //过期时间
+        $cache = 180;
+        //判断如果文件存在 或者 当前时间减创建时间小于过期时间则
+        if(file_exists($fileName) && time()-filemtime($fileName)<$cache){
+//            echo "有缓存";echo "<br>";
+            $content = file_get_contents($fileName);
+            echo $content;
+            die;
+        }
+        //sql
         $is_now = GoodsModel::where('is_new',1)->orderBy('goods_id','DESC')->limit(6)->get()->toArray();
         $is_hot = GoodsModel::where('is_hot',1)->orderBy('sale_num','DESC')->limit(4)->get()->toArray();
         $is_slideshow = GoodsModel::where('is_hot',1)->orderBy('sale_num','DESC')->limit(3)->get()->toArray();
-//        dd($is_hot);
-        return view('Index.index',['is_now'=>$is_now,'is_hot'=>$is_hot,'is_slideshow'=>$is_slideshow]);
+        //开启静态缓存
+        ob_start();
+        //生成页面
+        echo view("Index.index",["is_now"=>$is_now,"is_hot"=>$is_hot,"is_slideshow"=>$is_slideshow])->__toString();
+        //获取缓存
+        $content = ob_get_contents();
+        //写入文件
+        file_put_contents("buffer.html",$content);
+        //清空缓存
+        ob_end_clean();
+//        echo "无缓冲";echo "<br>";
+        echo $content;
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public function product_info(){
