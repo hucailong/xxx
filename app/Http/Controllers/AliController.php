@@ -58,7 +58,5 @@ class AliController extends Controller
         //echo $request_url2;die;
         header('Location:'.$request_url2);
 
-
-
     }
 }

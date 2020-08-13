@@ -104,7 +104,7 @@ class GitHubController extends Controller
          Redis::hMset($redis_token,$tokeninfo);
          Redis::expire($redis_token,60*60);
  
-         header("refresh:3,url=center");
+         header("refresh:3,url=/index/index");
          echo "登陆成功,正在跳转至个人中心...";
  
 
