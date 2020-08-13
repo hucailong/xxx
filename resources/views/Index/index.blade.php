@@ -31,7 +31,7 @@
                         <i class="fa fa-car"></i>
                     </div>
                     <h6>Free Shipping</h6>
-                    <h6>免费送货</h6>
+                    <h6 style="color: red">免费送货</h6>
                     <p>Lorem ipsum dolor sit amet consectetur</p>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                         <i class="fa fa-dollar"></i>
                     </div>
                     <h6>Money Back</h6>
-                    <h6>极速退款</h6>
+                    <h6 style="color: red">极速退款</h6>
                     <p>Lorem ipsum dolor sit amet consectetur</p>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                         <i class="fa fa-lock"></i>
                     </div>
                     <h6>Secure Payment</h6>
-                    <h6>安全支付</h6>
+                    <h6 style="color: red;">安全支付</h6>
                     <p>Lorem ipsum dolor sit amet consectetur</p>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                         <i class="fa fa-support"></i>
                     </div>
                     <h6>24/7 Support</h6>
-                    <h6>24/7 支持</h6>
+                    <h6 style="color: red">24/7 支持</h6>
                     <p>Lorem ipsum dolor sit amet consectetur</p>
                 </div>
             </div>
@@ -88,7 +88,7 @@
 <div class="section product">
     <div class="container">
         <div class="section-head">
-            <h5>NEW(新品)</h5>
+            <h5 style="color: red">NEW(新品)</h5>
             <div class="divider-top"></div>
             <div class="divider-bottom"></div>
         </div>
@@ -101,7 +101,7 @@
                     </a>
                     <h6><a href="{{url('/index/product_details/'.$v['goods_id'])}}">{{$v['goods_name']}}</a></h6>
                     <div class="price">
-                        ${{$v['shop_price']}} <span>$28</span>
+                        ${{$v['shop_price']}}
                     </div>
                     <a href="{{url('/index/product_details/'.$v['goods_id'])}}"><button class="btn button-default">加入购物车</button></a>
                 </div>
@@ -128,7 +128,7 @@
 <div class="section product">
     <div class="container">
         <div class="section-head">
-            <h5>HOT(热卖)</h5>
+            <h5 style="color: red">HOT(热卖)</h5>
             <div class="divider-top"></div>
             <div class="divider-bottom"></div>
         </div>
@@ -142,7 +142,7 @@
                     </a>
                     <h6><a href="{{url('/index/product_details/'.$v['goods_id'])}}">{{$v['goods_name']}}</a></h6>
                     <div class="price">
-                        ${{$v['shop_price']}} <span>$28</span>
+                        ${{$v['shop_price']}}
                     </div>
                     <a href="{{url('/index/product_details/'.$v['goods_id'])}}"><button class="btn button-default">加入购物车</button></a>
                 </div>
