@@ -51,5 +51,5 @@ Route::get('/vedioCron','Index\VedioCron@codec');
 
 Route::get('github','GitHubController@index'); //github视图
 Route::get('github/callback','GitHubController@callback'); //github回调
-
+Route::get('alipay','AliController@alipay'); //支付
 
