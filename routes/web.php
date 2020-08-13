@@ -15,6 +15,7 @@
 //     return view('welcome');
 // });
 
+<<<<<<< HEAD
     Route::domain('admin.shop.1910.com')->group(function(){
         Route::get('/',function(){
             return redirect('/admin');
@@ -54,3 +55,9 @@
 
 
     ///ljsdflksjflks
+=======
+
+
+
+//sadasdsa
+>>>>>>> team
