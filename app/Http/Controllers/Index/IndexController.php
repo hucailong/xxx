@@ -87,7 +87,7 @@ class IndexController extends Controller
                 if (password_verify($user_pwd,$res->user_pwd)){
 
                     session(['user' =>$session]);
-                    echo  $this->location_href('登录成功',url('index/index'));
+                    echo  $this->location_href('登录成功',url('/'));
                 }else{
                     echo  $this->location_href('账号或密码错误...');
                 }

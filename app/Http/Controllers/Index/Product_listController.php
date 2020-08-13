@@ -31,8 +31,6 @@ class Product_listController extends Controller
         $good_video = VideoModel::where('goods_id',$good_id)->first('m3u8');
         if ($good_video){
             $good_video = $good_video->toArray();
-        }else{
-            return view('Index/error_404');
         }
 
         return view('Index.product_details',['good_info'=>$good_info,'good_video'=>$good_video]);
