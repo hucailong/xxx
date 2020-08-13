@@ -14,7 +14,7 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-    
+
     Route::domain('admin.shop.1910.com')->group(function(){
         Route::get('/',function(){
             return redirect('/admin');
@@ -24,7 +24,9 @@
     Route::domain('shop.1910.com')->group(function () {
         Route::get('/','Index\Product_listController@index'); //前台展示
     //    商品
-        Route::view('/product_list','Index.product_list'); //商品展示
+
+        Route::get('/product_list','Index\Product_listController@product_list'); //商品展示
+
         Route::get('/product_details/{good_id}','Index\Product_listController@product_details');   //商品详情
 
         Route::get('/addcart/{good_id}','Index\CartController@addcart');  //加入购物车
