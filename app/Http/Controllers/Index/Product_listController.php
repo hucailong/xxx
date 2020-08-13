@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Model\Index\GoodsModel;
 use App\Model\Admin\VideoModel;
 use Illuminate\Support\Facades\Redis;
+
 class Product_listController extends Controller
 {
 
@@ -53,10 +54,27 @@ class Product_listController extends Controller
         }
 
         if (!session('user')) {
-            echo    $this->location_href('您未登录，正跳转至登录页面....',url('/index/login'));
+            echo   $this->location_href('您未登录，正跳转至登录页面....',url('/index/login'));
         }else{
 
         }
+    }
+
+
+
+    // 商品展示
+    public function product_list(Request $request){
+        $s = $request->get('s');
+        $where[] = [
+            'goods_name','like',"%{$s}%"
+        ];
+        $search = GoodsModel::where($where)->orderBy('goods_id','desc')->paginate(6);
+        $data = [
+            'data'=>$search
+        ];
+
+
+        return view('Index.product_list',$data);
     }
 
 
