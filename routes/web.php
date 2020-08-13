@@ -11,10 +11,10 @@
 |
 */
 
-<<<<<<< HEAD
-Route::get('/', function () {
-    return view('welcome');
-});
+
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 
 
@@ -54,11 +54,6 @@ Route::get('/vedioCron','Index\VedioCron@codec');
 
 
 
-=======
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-    
     Route::domain('admin.shop.1910.com')->group(function(){
         Route::get('/',function(){
             return redirect('/admin');
@@ -92,4 +87,4 @@ Route::get('/vedioCron','Index\VedioCron@codec');
     //    定时任务 <视频转码>
         Route::get('/vedioCron','Index\VedioCron@codec');
     });
->>>>>>> 6ae442507876bf0da78df955e931a9b6ae6a2d19
+
