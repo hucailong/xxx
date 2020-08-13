@@ -63,7 +63,7 @@ class GitHubController extends Controller
          
           //判断用户是否存在  不存在入库
         $u = GithubModel::where(['github_id'=>$userinfo['id']])->first();
-        print_r($u);
+        // print_r($u);
         if($u)
         {
             // echo "欢迎回来";echo "<br>";
@@ -72,7 +72,7 @@ class GitHubController extends Controller
             $u_info = [
                 'email' => $userinfo['email'],
             ];    
-            print_r($u_info);die;    
+            // print_r($u_info);die;    
             $uid = UserModel::insertGetId($u_info);
             
             //在github表中记录用户信息
