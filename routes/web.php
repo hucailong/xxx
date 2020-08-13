@@ -50,3 +50,7 @@
     //    定时任务 <视频转码>
         Route::get('/vedioCron','Index\VedioCron@codec');
     });
+
+
+
+    ///ljsdflksjflks
