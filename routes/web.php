@@ -49,7 +49,7 @@ Route::prefix('/index')->group(function (){ //前台模块
 
 
 });
-//    定时任务 <视频转码>
+//    定时任务 <视频转
 Route::get('/vedioCron','Index\VedioCron@codec');
 
 
@@ -61,7 +61,7 @@ Route::get('/vedioCron','Index\VedioCron@codec');
     });
 
     Route::domain('shop.1910.com')->group(function () {
-        Route::get('/','Index\Product_listController@index'); //前台展示
+        //Route::get('/','Index\Product_listController@index'); //前台展示
     //    商品
         Route::view('/product_list','Index.product_list'); //商品展示
         Route::get('/product_details/{good_id}','Index\Product_listController@product_details');   //商品详情

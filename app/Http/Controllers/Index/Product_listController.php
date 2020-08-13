@@ -12,20 +12,12 @@ class Product_listController extends Controller
 
     //前台首页
     public function index(){
-<<<<<<< HEAD
-
-//        $this->product_info();
-        $is_now = GoodsModel::where('is_new',1)->orderBy('goods_id','DESC')->limit(4)->get()->toArray();
-        $is_hot = GoodsModel::where('is_hot',1)->orderBy('sale_num','DESC')->limit(4)->get()->toArray();
-        return view('Index.index',['is_now'=>$is_now,'is_hot'=>$is_hot]);
-=======
 //        $this->product_info();
         $is_now = GoodsModel::where('is_new',1)->orderBy('goods_id','DESC')->limit(6)->get()->toArray();
         $is_hot = GoodsModel::where('is_hot',1)->orderBy('sale_num','DESC')->limit(4)->get()->toArray();
         $is_slideshow = GoodsModel::where('is_hot',1)->orderBy('sale_num','DESC')->limit(3)->get()->toArray();
 //        dd($is_hot);
         return view('Index.index',['is_now'=>$is_now,'is_hot'=>$is_hot,'is_slideshow'=>$is_slideshow]);
->>>>>>> a5a379a6c958b3f8b8bf925408ab60736a7e2b51
     }
 
 
