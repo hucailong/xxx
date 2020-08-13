@@ -5,30 +5,17 @@
 <div class="slider">
 
     <ul class="slides">
+        @foreach($is_slideshow as $v)
         <li>
-            <img src="/Index/img/slide1.jpg" alt="">
+            <img src="/storage/{{$v['goods_img']}}" width="2125px" height="300px" alt="">
             <div class="caption slider-content  center-align">
                 <h2>WELCOME TO MSTORE</h2>
+                <h2>欢迎来到本商店</h2>
                 <h4>Lorem ipsum dolor sit amet.</h4>
                 <a href="" class="btn button-default">SHOP NOW</a>
             </div>
         </li>
-        <li>
-            <img src="/Index/img/slide2.jpg" alt="">
-            <div class="caption slider-content center-align">
-                <h2>JACKETS BUSINESS</h2>
-                <h4>Lorem ipsum dolor sit amet.</h4>
-                <a href="" class="btn button-default">SHOP NOW</a>
-            </div>
-        </li>
-        <li>
-            <img src="/Index/img/slide3.jpg" alt="">
-            <div class="caption slider-content center-align">
-                <h2>FASHION SHOP</h2>
-                <h4>Lorem ipsum dolor sit amet.</h4>
-                <a href="" class="btn button-default">SHOP NOW</a>
-            </div>
-        </li>
+        @endforeach
     </ul>
 
 </div>
@@ -44,6 +31,7 @@
                         <i class="fa fa-car"></i>
                     </div>
                     <h6>Free Shipping</h6>
+                    <h6>免费送货</h6>
                     <p>Lorem ipsum dolor sit amet consectetur</p>
                 </div>
             </div>
@@ -53,6 +41,7 @@
                         <i class="fa fa-dollar"></i>
                     </div>
                     <h6>Money Back</h6>
+                    <h6>极速退款</h6>
                     <p>Lorem ipsum dolor sit amet consectetur</p>
                 </div>
             </div>
@@ -64,6 +53,7 @@
                         <i class="fa fa-lock"></i>
                     </div>
                     <h6>Secure Payment</h6>
+                    <h6>安全支付</h6>
                     <p>Lorem ipsum dolor sit amet consectetur</p>
                 </div>
             </div>
@@ -73,6 +63,7 @@
                         <i class="fa fa-support"></i>
                     </div>
                     <h6>24/7 Support</h6>
+                    <h6>24/7 支持</h6>
                     <p>Lorem ipsum dolor sit amet consectetur</p>
                 </div>
             </div>
@@ -85,7 +76,10 @@
 <div class="section quote">
     <div class="container">
         <h4>FASHION UP TO 50% OFF</h4>
+        <h4>时尚高达五折</h4>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid ducimus illo hic iure eveniet</p>
+        <p>爱让你坐着，奉献你的快乐。我的上帝保佑你平安</p>
+
     </div>
 </div>
 <!-- end quote -->
@@ -94,16 +88,17 @@
 <div class="section product">
     <div class="container">
         <div class="section-head">
-            <h4>新品</h4>
+            <h5>NEW(新品)</h5>
             <div class="divider-top"></div>
             <div class="divider-bottom"></div>
         </div>
-
         <div class="row margin-bottom">
             @foreach($is_now as $v)
             <div class="col s6 row margin-bottom">
                 <div class="content">
-                    <a href="{{url('/index/product_details/'.$v['goods_id'])}}"><img src="/Index/img/product-new3.png" alt=""></a>
+                    <a href="{{url('/index/product_details/'.$v['goods_id'])}}">
+                        <img src="/storage/{{$v['goods_img']}}" alt="">
+                    </a>
                     <h6><a href="{{url('/index/product_details/'.$v['goods_id'])}}">{{$v['goods_name']}}</a></h6>
                     <div class="price">
                         ${{$v['shop_price']}} <span>$28</span>
@@ -133,7 +128,7 @@
 <div class="section product">
     <div class="container">
         <div class="section-head">
-            <h4>热卖</h4>
+            <h5>HOT(热卖)</h5>
             <div class="divider-top"></div>
             <div class="divider-bottom"></div>
         </div>
@@ -142,7 +137,9 @@
             @foreach($is_hot as $v)
             <div class="col s6 row margin-bottom">
                 <div class="content">
-                    <a href="{{url('/index/product_details/'.$v['goods_id'])}}"><img src="/Index/img/product-new3.png" alt=""></a>
+                    <a href="{{url('/index/product_details/'.$v['goods_id'])}}">
+                        <img src="/storage/{{$v['goods_img']}}" width="50px" height="50px" alt="">
+                    </a>
                     <h6><a href="{{url('/index/product_details/'.$v['goods_id'])}}">{{$v['goods_name']}}</a></h6>
                     <div class="price">
                         ${{$v['shop_price']}} <span>$28</span>
