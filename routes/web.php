@@ -11,14 +11,8 @@
 |
 */
 
-<<<<<<< HEAD
-=======
-// Route::get('/', function () {
-//     return view('welcome');
-// });
->>>>>>> develop
 
-<<<<<<< HEAD
+
     Route::domain('admin.shop.1910.com')->group(function(){
         Route::get('/',function(){
             return redirect('/admin');
@@ -36,14 +30,14 @@
         Route::get('/addcart/{good_id}','Index\CartController@addcart');  //加入购物车
         Route::view('/wishlist','Index.wishlist');  //我的收藏
 
-<<<<<<< HEAD
+
 //    定时任务 <视频转码>
 Route::get('/vedioCron','Index\VedioCron@codec');
 
 Route::get('github','GitHubController@index'); //github视图
 Route::get('github/callback','GitHubController@callback'); //github回调
 Route::get('alipay','AliController@alipay'); //支付
-=======
+
         Route::view('/checkout','Index.checkout');  //支付
         Route::view('/blog','Index.blog');  //历史记录
         Route::view('/blog_single','Index.blog_single');
@@ -62,7 +56,7 @@ Route::get('alipay','AliController@alipay'); //支付
     //    定时任务 <视频转码>
 	Route::get('/vedioCron','Index\VedioCron@codec');
 
->>>>>>> develop
+
 
 	Route::get('github','GitHubController@index'); //github视图
 	Route::get('github/callback','GitHubController@callback'); //github回调
@@ -73,10 +67,3 @@ Route::get('alipay','AliController@alipay'); //支付
 
 
 
-    ///ljsdflksjflks
-=======
-
-
-
-//sadasdsa
->>>>>>> team
