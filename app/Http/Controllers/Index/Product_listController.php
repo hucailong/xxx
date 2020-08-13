@@ -12,10 +12,6 @@ class Product_listController extends Controller
 
     //前台首页
     public function index(){
-//        $this->product_info();
-        Redis::hget();
-
-
         $is_now = GoodsModel::where('is_new',1)->orderBy('goods_id','DESC')->limit(6)->get()->toArray();
         $is_hot = GoodsModel::where('is_hot',1)->orderBy('sale_num','DESC')->limit(4)->get()->toArray();
         $is_slideshow = GoodsModel::where('is_hot',1)->orderBy('sale_num','DESC')->limit(3)->get()->toArray();
