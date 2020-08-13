@@ -15,15 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
-Route::get('/','Index\Product_listController@index'); //前台展示
-
-Route::prefix('/index')->group(function (){ //前台模块
-
+//前台模块
+Route::get('/test','Index\IndexController@test');
+Route::prefix('/index')->group(function (){
+//    前台展示
+    Route::get('/index','Index\Product_listController@index'); //前台展示
 //    商品
     Route::view('/product_list','Index.product_list'); //商品展示
     Route::get('/product_details/{good_id}','Index\Product_listController@product_details');   //商品详情
+    Route::get('/product_enshrine/{good_id}','Index\Product_listController@product_enshrine');  //商品收藏
+
 
     Route::get('/addcart/{good_id}','Index\CartController@addcart');  //加入购物车
     Route::view('/wishlist','Index.wishlist');  //我的收藏
