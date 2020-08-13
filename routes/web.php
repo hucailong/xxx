@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 //前台模块
 Route::get('/test','Index\IndexController@test');
@@ -44,10 +41,8 @@ Route::prefix('/index')->group(function (){
 
 
 
-});
 //    定时任务 <视频转码>
 Route::get('/vedioCron','Index\VedioCron@codec');
-
 
 Route::get('github','GitHubController@index'); //github视图
 Route::get('github/callback','GitHubController@callback'); //github回调
