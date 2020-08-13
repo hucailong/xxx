@@ -10,8 +10,7 @@
                 <h5>{{$good_info['goods_name']}}</h5>
                 <div class="price">${{$good_info['shop_price']}} <span>$28</span></div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam eaque in non delectus, error iste veniam commodi mollitia, officia possimus, repellendus maiores doloribus provident. Itaque, ab perferendis nemo tempore! Accusamus</p>
-                <a href="{{url('/index/addcart/'.$good_info['goods_id'])}}"><button type="button" class="btn button-default">加入购物车</button></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="{{url('/index/product_enshrine/'.$good_info['goods_id'])}}"><button type="button" class="btn button-default">关注</button></a>
+                <a href="{{url('/index/addcart/'.$good_info['goods_id'])}}"><button type="button" class="btn button-default">加入购物车</button></a>
             </div>
             <div class="review">
 
