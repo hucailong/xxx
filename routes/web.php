@@ -27,8 +27,8 @@
 
 
     Route::prefix('/cart')->group(function (){  //购物车
-//        Route::get('/addcart/{good_id}','Index\CartController@addcart');  //加入购物车
-        Route::get('/index/','Index\CartController@cart');  //购物车页面
+       Route::get('/addcart','Index\CartController@addcart');  //加入购物车
+        Route::get('/index','Index\CartController@cartList');  //购物车页面
     });
 
 
@@ -76,6 +76,3 @@
 
 
     });
-
-
-
