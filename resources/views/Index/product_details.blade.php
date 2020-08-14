@@ -5,13 +5,13 @@
     <div class="pages section">
         <div class="container">
             <div class="shop-single">
-                <img src="{{$good_info['goods_img']}}" alt="">
+                <img src="/storage/{{$good_info['goods_img']}}" alt="">
                 <div class="prism-player" id="player-con"></div><br>
                 <h5>{{$good_info['goods_name']}}</h5>
                 <div class="price">${{$good_info['shop_price']}} <span>$28</span></div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam eaque in non delectus, error iste veniam commodi mollitia, officia possimus, repellendus maiores doloribus provident. Itaque, ab perferendis nemo tempore! Accusamus</p>
                 <a href="{{url('/index/addcart/'.$good_info['goods_id'])}}"><button type="button" class="btn button-default">加入购物车</button></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="{{url('/index/product_enshrine/'.$good_info['goods_id'])}}"><button type="button" class="btn button-default">关注</button></a>
+                <button type="button" class="btn button-default" goods_id="{{$good_info['goods_id']}}" id="Collection">收藏</button>
             </div>
             <div class="comment">
                 <h5>评价</h5>
@@ -77,4 +77,24 @@
             }
         );
     </script>
+    <script src="/Index/js/jquery.min.js"></script>
+    <script>
+        $(function (){
+            $(document).on('click','#Collection',function (){
+                var _this=$(this);
+                var goods_id=_this.attr('goods_id');
+                $.ajax({
+                    type: "POST",
+                    url: "/index/collect_do",
+                    data:{"goods_id":goods_id},
+                    dataType: "json",
+                    success:function(data){
+
+                    }
+                });
+            })
+        })
+
+    </script>
+
 @endsection

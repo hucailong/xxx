@@ -20,6 +20,9 @@ class CartController extends Controller
             var_dump($user_id);
             var_dump($good_id);
         }
+    public function cart(){
+        return view('Index.cart');
+    }
 
         public function goodsInfo($good_id){
            return  GoodsModel::find($good_id)->toArray();
