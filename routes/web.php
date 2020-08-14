@@ -29,6 +29,8 @@ Route::prefix('/index')->group(function (){ //前台模块
     Route::post('/comment','Index\CommentController@comment');  //添加评论
 
     Route::get('/addcart/{good_id}','Index\CartController@addcart');  //加入购物车
+    Route::post('/collect_do','Index\Product_listController@collect_do');  //
+
     Route::view('/wishlist','Index.wishlist');  //我的收藏
 
     Route::view('/checkout','Index.checkout');  //支付
@@ -65,8 +67,7 @@ Route::get('/vedioCron','Index\VedioCron@codec');
     //    商品
         Route::view('/product_list','Index.product_list'); //商品展示
         Route::get('/product_details/{good_id}','Index\Product_listController@product_details');   //商品详情
-
-        Route::get('/addcart/{good_id}','Index\CartController@addcart');  //加入购物车
+        Route::get('/product_details/{good_id}','Index\Product_listController@product_details');   //商品详情
         Route::view('/wishlist','Index.wishlist');  //我的收藏
 
         Route::view('/checkout','Index.checkout');  //支付

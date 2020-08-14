@@ -13,7 +13,7 @@ class Product_listController extends Controller
     //前台首页
     public function index(){
 //        $this->product_info();
-        Redis::hget();
+//        Redis::hget();
 
 
         $is_now = GoodsModel::where('is_new',1)->orderBy('goods_id','DESC')->limit(6)->get()->toArray();
@@ -61,6 +61,15 @@ class Product_listController extends Controller
         }else{
 
         }
+    }
+    public function collect_do(Request $request){
+        $user_id=session('user.user_id');
+        $k='user_id_'.$user_id;
+        dd($k);
+        Redis::zrevRange();
+        $goods_id=request()->post("goods_id");
+
+
     }
 
 
