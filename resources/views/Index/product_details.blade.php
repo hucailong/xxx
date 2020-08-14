@@ -5,13 +5,16 @@
     <div class="pages section">
         <div class="container">
             <div class="shop-single">
-                <img src="{{$good_info['goods_img']}}" alt="">
+                <img src="/storage/{{$good_info['goods_img']}}" alt="">
                 <div class="prism-player" id="player-con"></div><br>
                 <h5>{{$good_info['goods_name']}}</h5>
                 <div class="price">${{$good_info['shop_price']}} <span>$28</span></div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam eaque in non delectus, error iste veniam commodi mollitia, officia possimus, repellendus maiores doloribus provident. Itaque, ab perferendis nemo tempore! Accusamus</p>
-                <a href="{{url('/index/addcart/'.$good_info['goods_id'])}}"><button type="button" class="btn button-default">加入购物车</button></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="{{url('/index/product_enshrine/'.$good_info['goods_id'])}}"><button type="button" class="btn button-default">关注</button></a>
+                <div class="j_nums">
+                    <input type="hidden" style="" value="1" class="n_ipt" id="num" />
+                </div>
+                <button type="button" data-gid="{{$good_info['goods_id']}}" id="cart_add" class="btn button-default">加入购物车</button>
+                <button type="button" class="btn button-default" goods_id="{{$good_info['goods_id']}}" id="Collection">收藏</button>
             </div>
             <div class="comment">
                 <h5>评价</h5>
@@ -35,7 +38,7 @@
                     <p></p>
                 </div>
                 <div class="row">
-                    <form class="col s12 form-details" action="{{url('/index/comment')}}" method="post">
+                    <form class="col s12 form-details" action="{{url('/comment')}}" method="post">
                         @csrf
                         <input type="hidden" name="goods_id" value="{{$good_info['goods_id']}}">
                         <div class="input-field">
@@ -59,6 +62,8 @@
         </div>
     </div>
     <!-- end product_details -->
+    <script src="/Index/js/cart.js"></script>
+
     <script>
         var player = new Aliplayer({
                 "id": "player-con",
@@ -77,4 +82,50 @@
             }
         );
     </script>
+    <script src="/Index/js/jquery.min.js"></script>
+    <script>
+        $(function (){
+            $(document).on('click','#Collection',function (){
+                var _this=$(this);
+                var goods_id=_this.attr('goods_id');
+                $.ajax({
+                    type: "POST",
+                    url: "/collect_do",
+                    data:{"goods_id":goods_id},
+                    dataType: "json",
+                    success:function(data){
+
+                    }
+                });
+            })
+        })
+
+    </script>
+
+    <!-- <script>
+        $(document).ready(function () {
+            $("#cart").click(function(){
+                var num = $("#num").val();
+                var good_id = {{$good_info['goods_id']}}
+                $.ajax({
+					type: "POST",
+					url: "/index/addcart",
+					data:{"good_id":good_id,"num":num},
+					dataType: "json",
+					success:function(data){
+						if(data.error>0){
+                            if(data.error=100001){
+                                location.href='/index/login';
+                            }else{
+                                alert(data.msg);
+                            }
+						}else{
+                            alert(data.msg);
+                        }
+					}
+				});
+
+            });
+        });
+    </script> -->
 @endsection

@@ -17,7 +17,7 @@
 
                 <div class="col s6">
                     <div class="content">
-                        <img src="{{$v['goods_img']}}" alt="">
+                        <img src="/storage/{{$v['goods_img']}}" alt="">
                         <h6><a href="">{{$v['goods_name']}}</a></h6>
                         <div class="price">
                             {{$v['shop_price']}} <span>$28</span>

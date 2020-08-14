@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Redis;
 class Product_listController extends Controller
 {
     public function index(){
+
         //文件名
         $fileName = "buffer.html";
         //过期时间
@@ -22,7 +23,8 @@ class Product_listController extends Controller
             echo $content;
             die;
         }
-        //sql
+
+
         $is_now = GoodsModel::where('is_new',1)->orderBy('goods_id','DESC')->limit(6)->get()->toArray();
         $is_hot = GoodsModel::where('is_hot',1)->orderBy('sale_num','DESC')->limit(4)->get()->toArray();
         $is_slideshow = GoodsModel::where('is_hot',1)->orderBy('sale_num','DESC')->limit(3)->get()->toArray();
@@ -104,6 +106,15 @@ class Product_listController extends Controller
         }else{
 
         }
+    }
+    public function collect_do(Request $request){
+        $user_id=session('user.user_id');
+        $k='user_id_'.$user_id;
+        dd($k);
+        Redis::zrevRange();
+        $goods_id=request()->post("goods_id");
+
+
     }
 
 
