@@ -9,7 +9,7 @@
             </div>
             <div class="login">
                 <div class="row">
-                    <form class="col s12" method="post" action="{{url('/index/login')}}">
+                    <form class="col s12" method="post" action="{{url('/login')}}">
                         @csrf
                         <div class="input-field">
                             <input type="text" class="validate" placeholder="账号" required name="user_autner">
@@ -22,7 +22,7 @@
                     </form>
                     <h6>其他方式登录 ↓</h6><br>
                     <a href="https://github.com/login/oauth/authorize?client_id=3b96bf63d4c45b602570&redirect_uri=http://team.1910.com/github/callback">
-                            <img src="/timg.jfif" width="30px" height="30px" style="border-radius:50%;overflow:hidden;">  
+                            <img src="/timg.jfif" width="30px" height="30px" style="border-radius:50%;overflow:hidden;">
                     </a>
                     <a href="">
                         <img src="/1597299090(1).png" width="50px" height="35px" style="border-radius:50%;overflow:hidden;">

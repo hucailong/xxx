@@ -28,7 +28,7 @@
 
     Route::prefix('/cart')->group(function (){  //购物车
 //        Route::get('/addcart/{good_id}','Index\CartController@addcart');  //加入购物车
-        Route::get('/index/{good_id}','Index\CartController@cart');  //购物车页面
+        Route::get('/index/','Index\CartController@cart');  //购物车页面
     });
 
 
@@ -39,7 +39,8 @@
         Route::get('/product_details/{good_id}','Index\Product_listController@product_details');   //商品详情
           //商品详情
         Route::view('/wishlist','Index.wishlist');  //我的收藏
-
+        //评价
+        Route::post('/comment','Index\CommentController@comment');
 
 
 

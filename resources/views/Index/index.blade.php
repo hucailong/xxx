@@ -103,7 +103,7 @@
                     <div class="price">
                         ${{$v['shop_price']}}
                     </div>
-                    <a href="{{url('/product_details/'.$v['goods_id'])}}"><button class="btn button-default">加入购物车</button></a>
+                    <a href="{{url('/cart/index')}}"><button class="btn button-default">加入购物车</button></a>
                 </div>
             </div>
             @endforeach
@@ -144,7 +144,7 @@
                     <div class="price">
                         ${{$v['shop_price']}}
                     </div>
-                    <a href="{{url('/product_details/'.$v['goods_id'])}}"><button class="btn button-default">加入购物车</button></a>
+                    <a href="{{url('/cart/index')}}"><button class="btn button-default">加入购物车</button></a>
                 </div>
             </div>
             @endforeach

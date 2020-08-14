@@ -71,10 +71,10 @@
 <div class="navbar-bottom">
     <div class="row">
         <div class="col s2">
-            <a href="{{url('/index/index')}}"><i class="fa fa-home"></i></a>
+            <a href="{{url('/')}}"><i class="fa fa-home"></i></a>
         </div>
         <div class="col s2">
-            <a href="{{url('/index/wishlist')}}"><i class="fa fa-heart"></i></a>
+            <a href="{{url('/wishlist')}}"><i class="fa fa-heart"></i></a>
         </div>
         <div class="col s4">
             <div class="bar-center">
@@ -101,7 +101,7 @@
         <div class="container">
             <div class="row">
                 <div class="col s4">
-                    <a href="{{url('/index/index')}}" class="button-link">
+                    <a href="{{url('/')}}" class="button-link">
                         <div class="menu-link">
                             <div class="icon">
                                 <i class="fa fa-home"></i>
@@ -143,7 +143,7 @@
                     </a>
                 </div>
                 <div class="col s4">
-                    <a href="{{url('index/cart')}}" class="button-link">
+                    <a href="{{url('cart/index')}}" class="button-link">
                         <div class="menu-link">
                             <div class="icon">
                                 <i class="fa fa-shopping-cart"></i>
