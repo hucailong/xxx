@@ -85,7 +85,7 @@
                 var goods_id=_this.attr('goods_id');
                 $.ajax({
                     type: "POST",
-                    url: "/index/collect_do",
+                    url: "/collect_do",
                     data:{"goods_id":goods_id},
                     dataType: "json",
                     success:function(data){

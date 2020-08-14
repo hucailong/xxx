@@ -9,7 +9,7 @@
             </div>
             <div class="register">
                 <div class="row">
-                    <form class="col s12" method="post" action="{{url('/index/register')}}">
+                    <form class="col s12" method="post" action="{{url('/register')}}">
                         @csrf
                         <div class="input-field">
                             <input type="text" class="validate" placeholder="账号" required name="user_autner">
