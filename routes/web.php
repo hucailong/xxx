@@ -10,55 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-<<<<<<< HEAD
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
-
-Route::get('/','Index\Product_listController@index'); //前台展示
-
-Route::prefix('/index')->group(function (){ //前台模块
-
-//    商品
-    Route::view('/product_list','Index.product_list'); //商品展示
-    Route::get('/product_details/{good_id}','Index\Product_listController@product_details');   //商品详情
-
-    Route::post('/comment','Index\CommentController@comment');  //添加评论
-
-    Route::get('/addcart/{good_id}','Index\CartController@addcart');  //加入购物车
-    Route::view('/wishlist','Index.wishlist');  //我的收藏
-
-    Route::view('/checkout','Index.checkout');  //支付
-    Route::view('/blog','Index.blog');  //历史记录
-    Route::view('/blog_single','Index.blog_single');
-    Route::view('/error_404','Index.error_404');   //报错404
-    Route::view('/testimonial','Index.testimonial');  //推荐用户
-    Route::view('/about_us','Index.about_us');  //关于我们
-    Route::view('/contact','Index.contact');    //联系人
-    Route::view('/setting','Index.setting');    //设置
-//    登录
-    Route::view('/login','Index.login');
-    Route::post('/login','Index\IndexController@login');
-//    注册
-    Route::view('/register','Index.register');
-    Route::post('/register','Index\IndexController@register');
-
-
-
-});
-//    定时任务 <视频转码>
-Route::get('/vedioCron','Index\VedioCron@codec');
-
-
-
-=======
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-    
+
     Route::domain('admin.shop.1910.com')->group(function(){
         Route::get('/',function(){
             return redirect('/admin');
@@ -68,10 +23,12 @@ Route::get('/vedioCron','Index\VedioCron@codec');
     Route::domain('shop.1910.com')->group(function () {
         Route::get('/','Index\Product_listController@index'); //前台展示
     //    商品
-        Route::view('/product_list','Index.product_list'); //商品展示
-        Route::get('/product_details/{good_id}','Index\Product_listController@product_details');   //商品详情
+        Route::view('/index/product_list','Index.product_list'); //商品展示
+        Route::get('/index/product_details/{good_id}','Index\Product_listController@product_details');   //商品详情
 
-        Route::get('/addcart/{good_id}','Index\CartController@addcart');  //加入购物车
+        Route::post('/index/comment','Index\CommentController@comment');  //添加评论
+
+        Route::get('/index/addcart/{good_id}','Index\CartController@addcart');  //加入购物车
         Route::view('/wishlist','Index.wishlist');  //我的收藏
 
         Route::view('/checkout','Index.checkout');  //支付
@@ -92,4 +49,4 @@ Route::get('/vedioCron','Index\VedioCron@codec');
     //    定时任务 <视频转码>
         Route::get('/vedioCron','Index\VedioCron@codec');
     });
->>>>>>> 6ae442507876bf0da78df955e931a9b6ae6a2d19
+
