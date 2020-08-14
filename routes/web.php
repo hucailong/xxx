@@ -26,7 +26,7 @@ Route::prefix('/index')->group(function (){ //前台模块
     Route::view('/product_list','Index.product_list'); //商品展示
     Route::get('/product_details/{good_id}','Index\Product_listController@product_details');   //商品详情
 
-    Route::post('/addcart','Index\CartController@addcart');  //加入购物车
+    Route::get('/addcart','Index\CartController@addcart');  //加入购物车
     Route::get('/cartlist','Index\CartController@cartList'); //购物车列表
     Route::post('/comment','Index\CommentController@comment');  //添加评论
 

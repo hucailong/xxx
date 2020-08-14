@@ -5,7 +5,7 @@
     <div class="pages section">
         <div class="container">
             <div class="shop-single">
-                <img src="{{$good_info['goods_img']}}" alt="">
+                <img src="/storage/{{$good_info['goods_img']}}" alt="">
                 <div class="prism-player" id="player-con"></div><br>
                 <h5>{{$good_info['goods_name']}}</h5>
                 <div class="price">${{$good_info['shop_price']}} <span>$28</span></div>
@@ -13,7 +13,7 @@
                 <div class="j_nums">
                     <input type="hidden" style="" value="1" class="n_ipt" id="num" />
                 </div>
-                <a><button type="button" id="cart" class="btn button-default">加入购物车</button></a>
+                <button type="button" data-gid="{{$good_info['goods_id']}}" id="cart_add" class="btn button-default">加入购物车</button>
                 <a href="{{url('/index/product_enshrine/'.$good_info['goods_id'])}}"><button type="button" class="btn button-default">关注</button></a>
             </div>
             <div class="comment">
@@ -62,7 +62,8 @@
         </div>
     </div>
     <!-- end product_details -->
-    <script src="/Index/js/jquery.min.js"></script>
+    <script src="/Index/js/cart.js"></script>
+
     <script>
         var player = new Aliplayer({
                 "id": "player-con",
@@ -81,7 +82,7 @@
             }
         );
     </script>
-    <script>
+    <!-- <script>
         $(document).ready(function () {
             $("#cart").click(function(){
                 var num = $("#num").val();
@@ -106,5 +107,5 @@
 
             });
         });
-    </script>
+    </script> -->
 @endsection

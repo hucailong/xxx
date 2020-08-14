@@ -15,7 +15,7 @@ class Login
      */
     public function handle($request, Closure $next)
     {
-        $user_id = session('user')['user_id'];
+        $user_id=session('user.user_id');
         if(empty($user_id)){
             echo "请先登录";
             header("refresh:3;url=/index/login");die;
