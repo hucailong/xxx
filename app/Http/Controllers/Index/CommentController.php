@@ -36,7 +36,7 @@ class CommentController extends Controller
         $res = CommentModel::insert($data);
         if($res>0){
             echo "添加评论成功，OK";
-            header("refresh:2;url=/index/product_details/".$goods_id);
+            header("refresh:2;url=/product_details/".$goods_id);
         }else{
             echo "添加评论失败，failure";
             header("refresh:2;url=/index/product_details/".$goods_id);

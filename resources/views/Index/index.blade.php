@@ -96,14 +96,14 @@
             @foreach($is_now as $v)
             <div class="col s6 row margin-bottom">
                 <div class="content">
-                    <a href="{{url('/index/product_details/'.$v['goods_id'])}}">
+                    <a href="{{url('/product_details/'.$v['goods_id'])}}">
                         <img src="/storage/{{$v['goods_img']}}" alt="">
                     </a>
-                    <h6><a href="{{url('/index/product_details/'.$v['goods_id'])}}">{{$v['goods_name']}}</a></h6>
+                    <h6><a href="{{url('/product_details/'.$v['goods_id'])}}">{{$v['goods_name']}}</a></h6>
                     <div class="price">
-                        ${{$v['shop_price']}} <span>$28</span>
+                        ${{$v['shop_price']}}
                     </div>
-                    <a href="{{url('/index/product_details/'.$v['goods_id'])}}"><button class="btn button-default">加入购物车</button></a>
+                    <a href="{{url('/cart/index')}}"><button class="btn button-default">加入购物车</button></a>
                 </div>
             </div>
             @endforeach
@@ -137,14 +137,14 @@
             @foreach($is_hot as $v)
             <div class="col s6 row margin-bottom">
                 <div class="content">
-                    <a href="{{url('/index/product_details/'.$v['goods_id'])}}">
+                    <a href="{{url('/product_details/'.$v['goods_id'])}}">
                         <img src="/storage/{{$v['goods_img']}}" width="50px" height="50px" alt="">
                     </a>
-                    <h6><a href="{{url('/index/product_details/'.$v['goods_id'])}}">{{$v['goods_name']}}</a></h6>
+                    <h6><a href="{{url('//product_details/'.$v['goods_id'])}}">{{$v['goods_name']}}</a></h6>
                     <div class="price">
-                        ${{$v['shop_price']}} <span>$28</span>
+                        ${{$v['shop_price']}}
                     </div>
-                    <a href="{{url('/index/product_details/'.$v['goods_id'])}}"><button class="btn button-default">加入购物车</button></a>
+                    <a href="{{url('/cart/index')}}"><button class="btn button-default">加入购物车</button></a>
                 </div>
             </div>
             @endforeach

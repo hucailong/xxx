@@ -53,7 +53,7 @@ class IndexController extends Controller
                     ];
                     $id = UserModel::insertGetId($data);
                     if ($id){
-                        echo $this->location_href('注册成功',url('/index/login'));
+                        echo $this->location_href('注册成功',url('/login'));
                         exit;
                     }else{
                         echo $this->location_href('网络错误稍后再试...');
@@ -87,7 +87,7 @@ class IndexController extends Controller
                 if (password_verify($user_pwd,$res->user_pwd)){
 
                     session(['user' =>$session]);
-                    echo  $this->location_href('登录成功',url('index/index'));
+                    echo  $this->location_href('登录成功',url('/'));
                 }else{
                     echo  $this->location_href('账号或密码错误...');
                 }

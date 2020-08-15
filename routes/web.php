@@ -10,9 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
+
+
+
+
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
 
     Route::domain('admin.shop.1910.com')->group(function(){
         Route::get('/',function(){
@@ -21,6 +27,7 @@
     });
 
     Route::domain('shop.1910.com')->group(function () {
+
         Route::get('/','Index\Product_listController@index'); //前台展示
     //    商品
         Route::view('/index/product_list','Index.product_list'); //商品展示
@@ -30,6 +37,35 @@
 
         Route::get('/index/addcart/{good_id}','Index\CartController@addcart');  //加入购物车
         Route::view('/wishlist','Index.wishlist');  //我的收藏
+
+
+
+    Route::prefix('/cart')->group(function (){  //购物车
+       Route::get('/addcart','Index\CartController@addcart');  //加入购物车
+        Route::get('/index','Index\CartController@cartList');  //购物车页面
+    });
+
+
+        Route::get('/','Index\Product_listController@index'); //前台首页展示
+
+        //   商品
+        Route::get('/product_list','Index\Product_listController@product_list'); //商品展示
+        Route::get('/product_details/{good_id}','Index\Product_listController@product_details');   //商品详情
+          //商品详情
+        Route::view('/wishlist','Index.wishlist');  //我的收藏
+        //评价
+        Route::post('/comment','Index\CommentController@comment');
+
+        Route::post('/collect_do','Index\Product_listController@collect_do'); //收藏
+
+//
+
+
+
+        Route::get('github','GitHubController@index'); //github视图
+        Route::get('github/callback','GitHubController@callback'); //github回调
+        Route::get('alipay','AliController@alipay'); //支付
+
 
         Route::view('/checkout','Index.checkout');  //支付
         Route::view('/blog','Index.blog');  //历史记录
@@ -47,6 +83,12 @@
         Route::post('/register','Index\IndexController@register');
 
     //    定时任务 <视频转码>
-        Route::get('/vedioCron','Index\VedioCron@codec');
+	Route::get('/vedioCron','Index\VedioCron@codec');
+
+
+
+
+
+
     });
 
