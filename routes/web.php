@@ -91,6 +91,14 @@
 
 
 
+//	服务
+        Route::view('/Free_shipping','Index.Free_shipping');
+        Route::view('/fast_refund','Index.fast_refund');
+        Route::view('/Secure_payment','Index.Secure_payment');
+        Route::view('/return','Index.return');
+
+
+
 
 
 
