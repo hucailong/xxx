@@ -43,37 +43,18 @@ class Product_listController extends Controller
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function product_info(){
         var_dump(GoodsModel::where('is_new',1)->orderBy('goods_id','DESC')->limit(4)->get());
     }
 
+    /**
+     * 商品详情
+     */
     public function product_details($good_id){
+        $user_id=session('user')['user_id'];
+        $redis_fav_key = 'ss:collect:goods:'.$user_id;     //商品收藏有序集合
+
+
         $good_info = GoodsModel::find($good_id);
         if ($good_info){
             $good_info = $good_info->toArray();
@@ -88,6 +69,9 @@ class Product_listController extends Controller
                 'm3u8' => 'video_out/218.m3u8',
             ];
         }
+
+        $fav = intval(Redis::zScore($redis_fav_key,$good_id));     // 0 未收藏 1已收藏
+        $goods_info['fav'] = $fav;
 
         return view('Index.product_details',['good_info'=>$good_info,'good_video'=>$good_video]);
     }
@@ -107,17 +91,48 @@ class Product_listController extends Controller
 
         }
     }
-    public function collect_do(Request $request){
-        $user_id=session('user.user_id');
-        $k='user_id_'.$user_id;
-        dd($k);
-        Redis::zrevRange();
-        $goods_id=request()->post("goods_id");
+    /**
+     * 收藏
+     */
+    public function collect(Request $request){
+        $user_id=session('user')['user_id'];
+        if(empty($user_id)){
+            return $response = [
+                'errno' => 100001,
+                'msg'   => '请先登录!'
+            ];
+            return $response;
+        }
+        $goods_id = $request->get('goods_id');
+        $g = GoodsModel::where('goods_id',$goods_id)->first();
+        if(empty($goods_id) || empty($g)){
+            $response = [
+                'errno' => 200001,
+                'msg'   => '商品信息不存在'
+            ];
+            return $response;
+        }
 
+        $key = 'ss:collect:goods:'.$user_id;   //收藏有序集合
+        if(Redis::zScore($key,$goods_id)){
+            $response = [
+                'errno' => 200002,
+                'msg'   => '已收藏'
+            ];
+            return $response;
+        }else{
+            Redis::zAdd($key,time(),$goods_id);
+            $response = [
+                'errno' => 0,
+                'msg'   => '收藏成功'
+            ];
+            //加入收藏排行榜
+            $redis_goods_collect_key = 'ss:collect_goods_rank';
+            Redis::zIncrBy($redis_goods_collect_key,1,$goods_id);
+        }
+        return $response;
 
     }
-
-
 
     // 商品展示
     public function product_list(Request $request){
@@ -129,7 +144,6 @@ class Product_listController extends Controller
         $data = [
             'data'=>$search
         ];
-
 
         return view('Index.product_list',$data);
     }

@@ -42,7 +42,7 @@
         //评价
         Route::post('/comment','Index\CommentController@comment');
 
-        Route::post('/collect_do','Index\Product_listController@collect_do'); //收藏
+        Route::get('/collect','Index\Product_listController@collect'); //收藏
 
 //
 
