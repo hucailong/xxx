@@ -1,99 +1,39 @@
 @extends('layouts.app')
-@section('title', '前台')
+@section('title', '商品展示')
 @section('content')
     <!-- product_list -->
     <div class="section product product-list">
         <div class="container">
             <div class="pages-head">
-                <h3>PRODUCT LIST</h3>
+                <h3>商品展示</h3>
             </div>
-            <div class="input-field">
-                <select>
-                    <option value="">Popular</option>
-                    <option value="1">New Product</option>
-                    <option value="2">Best Sellers</option>
-                    <option value="3">Best Reviews</option>
-                    <option value="4">Low Price</option>
-                    <option value="5">High Price</option>
-                </select>
+            <div class="input">
+                <form action="{{url('/product_list')}}" method="get">
+                    <input type="text" name="s" value="{{@$_GET['s']}}" placeholder="搜索/商品/商品关键字">
+                </form>
             </div>
             <div class="row">
+                @foreach($data as $v)
+
                 <div class="col s6">
                     <div class="content">
-                        <img src="img/product-new1.png" alt="">
-                        <h6><a href="">Fashion Men's</a></h6>
+                        <img src="/storage/{{$v['goods_img']}}" alt="">
+                        <h6><a href="">{{$v['goods_name']}}</a></h6>
                         <div class="price">
-                            $20 <span>$28</span>
+                            {{$v['shop_price']}} <span>$28</span>
                         </div>
-                        <button class="btn button-default">ADD TO CART</button>
+                        <a href="{{url('/index/addcart/'.$v['goods_id'])}}"><button type="button" class="btn button-default">加入购物车</button></a>
                     </div>
+                    <div class="row"></div>
                 </div>
-                <div class="col s6">
-                    <div class="content">
-                        <img src="img/product-new2.png" alt="">
-                        <h6><a href="">Fashion Men's</a></h6>
-                        <div class="price">
-                            $20 <span>$28</span>
-                        </div>
-                        <button class="btn button-default">ADD TO CART</button>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
-            <div class="row margin-bottom">
-                <div class="col s6">
-                    <div class="content">
-                        <img src="img/product-new3.png" alt="">
-                        <h6><a href="">Fashion Men's</a></h6>
-                        <div class="price">
-                            $20 <span>$28</span>
-                        </div>
-                        <button class="btn button-default">ADD TO CART</button>
-                    </div>
-                </div>
-                <div class="col s6">
-                    <div class="content">
-                        <img src="img/product-new4.png" alt="">
-                        <h6><a href="">Fashion Men's</a></h6>
-                        <div class="price">
-                            $20 <span>$28</span>
-                        </div>
-                        <button class="btn button-default">ADD TO CART</button>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s6">
-                    <div class="content">
-                        <img src="img/product-new3.png" alt="">
-                        <h6><a href="">Fashion Men's</a></h6>
-                        <div class="price">
-                            $20 <span>$28</span>
-                        </div>
-                        <button class="btn button-default">ADD TO CART</button>
-                    </div>
-                </div>
-                <div class="col s6">
-                    <div class="content">
-                        <img src="img/product-new4.png" alt="">
-                        <h6><a href="">Fashion Men's</a></h6>
-                        <div class="price">
-                            $20 <span>$28</span>
-                        </div>
-                        <button class="btn button-default">ADD TO CART</button>
-                    </div>
-                </div>
-            </div>
-            <div class="pagination-product">
-                <ul>
-                    <li class="active">1</li>
-                    <li><a href="">2</a></li>
-                    <li><a href="">3</a></li>
-                    <li><a href="">4</a></li>
-                    <li><a href="">5</a></li>
-                </ul>
-            </div>
+
+
+                {{ $data->appends(['s'=>$_GET['s']])->links() }}
+
         </div>
     </div>
     <!-- end product_list -->
 @endsection
-
