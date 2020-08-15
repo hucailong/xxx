@@ -11,7 +11,7 @@
             <div class="caption slider-content  center-align">
                 <h2>WELCOME TO MSTORE</h2>
                 <h2>欢迎来到本商店</h2>
-                <h4>Lorem ipsum dolor sit amet.</h4>
+                <!-- <h4>Lorem ipsum dolor sit amet.</h4> -->
                 <a href="" class="btn button-default">SHOP NOW</a>
             </div>
         </li>
@@ -30,9 +30,11 @@
                     <div class="icon">
                         <i class="fa fa-car"></i>
                     </div>
+                    <a href="/Free_shipping">
                     <h6>Free Shipping</h6>
                     <h6>免费送货</h6>
-                    <p>Lorem ipsum dolor sit amet consectetur</p>
+                    </a>
+                    <!-- <p>Lorem ipsum dolor sit amet consectetur</p> -->
                 </div>
             </div>
             <div class="col s6">
@@ -40,9 +42,10 @@
                     <div class="icon">
                         <i class="fa fa-dollar"></i>
                     </div>
+                    <a href="fast_refund">
                     <h6>Money Back</h6>
-                    <h6>极速退款</h6>
-                    <p>Lorem ipsum dolor sit amet consectetur</p>
+                    <h6>极速退款</h6></a>
+                    <!-- <p>Lorem ipsum dolor sit amet consectetur</p> -->
                 </div>
             </div>
         </div>
@@ -52,9 +55,10 @@
                     <div class="icon">
                         <i class="fa fa-lock"></i>
                     </div>
+                    <a href="Secure_payment">
                     <h6>Secure Payment</h6>
-                    <h6>安全支付</h6>
-                    <p>Lorem ipsum dolor sit amet consectetur</p>
+                    <h6>安全支付</h6></a>
+                    <!-- <p>Lorem ipsum dolor sit amet consectetur</p> -->
                 </div>
             </div>
             <div class="col s6">
@@ -62,9 +66,10 @@
                     <div class="icon">
                         <i class="fa fa-support"></i>
                     </div>
-                    <h6>24/7 Support</h6>
-                    <h6>24/7 支持</h6>
-                    <p>Lorem ipsum dolor sit amet consectetur</p>
+                    <a href="/return">
+                    <h6>7 Return</h6>
+                    <h6>7天无理由退货</h6></a>
+                    <!-- <p>Lorem ipsum dolor sit amet consectetur</p> -->
                 </div>
             </div>
         </div>
@@ -75,8 +80,8 @@
 <!-- quote -->
 <div class="section quote">
     <div class="container">
-        <h4>FASHION UP TO 50% OFF</h4>
-        <h4>时尚高达五折</h4>
+        <h4>FASHION UP TO 50% OFF(时尚高达五折)</h4>
+        <!-- <h4></h4> -->
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid ducimus illo hic iure eveniet</p>
         <p>爱让你坐着，奉献你的快乐。我的上帝保佑你平安</p>
 
