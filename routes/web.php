@@ -70,12 +70,14 @@
     //    定时任务 <视频转码>
 	Route::get('/vedioCron','Index\VedioCron@codec');
 
+        Route::get('/back/pwd','Index\BackController@back'); //找回密码
+        Route::post('/back/pwds','Index\BackController@backs'); //找回密码
+        Route::get('/back/resetpass','Index\BackController@resetpass'); //
+        Route::post('/back/reset','Index\BackController@reset'); //
 
 
 
 
 
     });
-
-
 

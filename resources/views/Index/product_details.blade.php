@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title', '前台')
 @section('content')
+
     <!-- product_details -->
     <div class="pages section">
         <div class="container">
@@ -77,24 +78,23 @@
             }
         );
     </script>
+
     <script src="/Index/js/jquery.min.js"></script>
     <script>
-        $(function (){
-            $(document).on('click','#Collection',function (){
-                var _this=$(this);
-                var goods_id=_this.attr('goods_id');
+        $(function () {
+            $(document).on('click', '#Collection', function () {
+                var _this = $(this);
+                var goods_id = _this.attr('goods_id');
                 $.ajax({
                     type: "POST",
                     url: "/collect_do",
-                    data:{"goods_id":goods_id},
+                    data: {"goods_id": goods_id},
                     dataType: "json",
-                    success:function(data){
+                    success: function (data) {
 
                     }
                 });
-            })
-        })
-
+            });
+        });
     </script>
-
 @endsection

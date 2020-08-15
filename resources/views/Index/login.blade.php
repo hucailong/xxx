@@ -17,7 +17,8 @@
                         <div class="input-field">
                             <input type="password" class="validate" placeholder="密码" required name="user_pwd">
                         </div>
-                        <a href="">忘了密码?</a><br>
+                        <h4><a href="">忘了密码</a>
+                        <a href="/back/pwd">找回密码</a><br></h4>
                         <input type="submit" class="btn button-default" value="登录">
                     </form>
                     <h6>其他方式登录 ↓</h6><br>

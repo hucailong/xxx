@@ -10,6 +10,13 @@ use Illuminate\Support\Facades\Redis;
 
 class Product_listController extends Controller
 {
+//    public $uuid;
+//    public $now;
+//    public function __construct()
+//    {
+//        $this->now = time();
+//        $this->uuid = $_COOKIE['uuid'];
+//    }
     public function index(){
 
         //文件名
@@ -42,32 +49,6 @@ class Product_listController extends Controller
         echo $content;
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public function product_info(){
         var_dump(GoodsModel::where('is_new',1)->orderBy('goods_id','DESC')->limit(4)->get());
@@ -109,10 +90,12 @@ class Product_listController extends Controller
     }
     public function collect_do(Request $request){
         $user_id=session('user.user_id');
-        $k='user_id_'.$user_id;
-        dd($k);
-        Redis::zrevRange();
-        $goods_id=request()->post("goods_id");
+        if(empty($user_id)){
+            return data(['error'=>'1','msg'=>"请登录"]);
+        }
+//        dd($k);
+//        Redis::zrevRange();
+//        $goods_id=request()->post("goods_id");
 
 
     }
