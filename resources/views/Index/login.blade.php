@@ -22,9 +22,9 @@
                         <input type="submit" class="btn button-default" value="登录">
                     </form>
                     <h6>其他方式登录 ↓</h6><br>
-                    <a href="https://github.com/login/oauth/authorize?client_id=3b96bf63d4c45b602570&redirect_uri=http://team.1910.com/github/callback">
-                            <img src="/timg.jfif" width="30px" height="30px" style="border-radius:50%;overflow:hidden;">
-                    </a>
+
+                    <a href="{{url('github')}}">
+                            <img src="/timg.jfif" width="30px" height="30px" style="border-radius:50%;overflow:hidden;">  
                     <a href="">
                         <img src="/1597299090(1).png" width="50px" height="35px" style="border-radius:50%;overflow:hidden;">
                     </a>

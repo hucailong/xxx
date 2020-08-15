@@ -25,6 +25,8 @@
     <script src="/Index/js/jscookie.min.js"></script>
     <script src="/Index/js/init.js"></script>
 
+    <script src="/Index/js/jquery.min.js"></script>
+
 
 </head>
 <body>
@@ -375,11 +377,12 @@
 <!-- end footer -->
 
 <!-- scripts -->
-<script src="/Index/js/jquery.min.js"></script>
 <script src="/Index/js/materialize.min.js"></script>
 <script src="/Index/js/owl.carousel.min.js"></script>
 <script src="/Index/js/fakeLoader.min.js"></script>
 <script src="/Index/js/animatedModal.min.js"></script>
 <script src="/Index/js/main.js"></script>
+<script src="/Index/js/js.cookie-2.2.1.min.js"></script>
+
 </body>
 </html>

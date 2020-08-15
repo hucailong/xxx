@@ -61,7 +61,7 @@
                 <div class="links">
                 <h3>欢迎使用GitHub登录</h3>
                     <h2>
-                    <a href="https://github.com/login/oauth/authorize?client_id=3b96bf63d4c45b602570&redirect_uri=http://team.1910.com/github/callback">
+                    <a href="https://github.com/login/oauth/authorize?client_id=3b96bf63d4c45b602570&redirect_uri=http://shop.1910.com/github/callback">
                         <img src="/timg.jfif" width="150px" height="150px" style="border-radius:50%;overflow:hidden;"><br>
                         GitHub  
                     </a>
