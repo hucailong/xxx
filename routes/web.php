@@ -44,6 +44,11 @@
        Route::get('/addcart','Index\CartController@addcart');  //加入购物车
         Route::get('/index','Index\CartController@cartList');  //购物车页面
     });
+        Route::prefix('/order')->group(function (){  //订单
+            Route::get('/generate','Index\OrderController@generate');
+        });
+
+
 
 
         Route::get('/','Index\Product_listController@index'); //前台首页展示

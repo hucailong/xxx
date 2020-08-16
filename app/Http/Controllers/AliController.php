@@ -12,6 +12,7 @@ class AliController extends Controller
      */
     public function alipay()
     {
+        $total=request()->get("total");
         $client = new Client();
 
         $url = 'https://openapi.alipaydev.com/gateway.do';      //沙箱环境
@@ -19,11 +20,11 @@ class AliController extends Controller
         $common_param = [
             'out_trade_no' => '1910team_'.time().'_'.mt_rand(11111,99999),   //商户订单号  随机
             'product_code' => 'FAST_INSTANT_TRADE_PAY',  //销售产品码
-            'total_amount'=>'88.88',                    //订单的总金额
+            'total_amount'=>$total,                    //订单的总金额
             'subject' => '测试:'.mt_rand(11111,99999),   //订单名称
         ];
         // print_r($common_param['out_trade_no']);die;
-        
+
         //公共请求参数
         $pub_param = [
             'app_id' => '2016101300673640',   //appid
@@ -49,11 +50,10 @@ class AliController extends Controller
         $str = rtrim($str,'&');
         // echo "带签名字符串:".$str;echo "<hr>";
         $request_url = $url.'?'.$str;
-
         $keys = file_get_contents(storage_path('keys/priv_ali.key'));
         $res = openssl_get_privatekey($keys);
         openssl_sign($str,$sign,$res,OPENSSL_ALGO_SHA256);
-        $sign = base64_encode($sign);   
+        $sign = base64_encode($sign);
         $request_url2 = $request_url.'&sign='.urlencode($sign);
         //echo $request_url2;die;
         header('Location:'.$request_url2);

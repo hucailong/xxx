@@ -12,10 +12,10 @@
                 <div class="cart-1">
                     <div class="row">
                         <div class="col s5">
-                            <h5>图片</h5>
+                            <h5><input type="checkbox">图片</h5>
                         </div>
                         <div class="col s7">
-                            <img src="{{$v['goods_img']}}" alt="">
+                            <img src="/storage/{{$v['goods_img']}}" alt="">
                         </div>
                     </div>
                     <div class="row">
@@ -39,7 +39,7 @@
                             <h5>价钱</h5>
                         </div>
                         <div class="col s7">
-                            <h5>${{$v['shop_price']}}</h5>
+                            <h5>$<span id="price">{{$v['shop_price']}}</span></h5>
                         </div>
                     </div>
                     <div class="row">
@@ -55,33 +55,31 @@
             @endforeach
             </div>
             <div class="total">
+
+
                 <div class="row">
                     <div class="col s7">
-                        <h5>Fashion Men's</h5>
+                        <h6>总价</h6>
                     </div>
                     <div class="col s5">
-                        <h5>$21.00</h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s7">
-                        <h5>Fashion Men's</h5>
-                    </div>
-                    <div class="col s5">
-                        <h5>$20.00</h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s7">
-                        <h6>Total</h6>
-                    </div>
-                    <div class="col s5">
-                        <h6>$41.00</h6>
+                        <h6>￥<span id="total">{{$total}}</span></h6>
                     </div>
                 </div>
             </div>
-            <button class="btn button-default">提交订单</button>
+            <button class="btn button-default" goods_ids="{{$goods_ids}}">提交订单</button>
         </div>
     </div>
     <!-- end cart -->
+    <script scr="/Index/js/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $(document).on('click','.button-default',function (){
+                var _this=$(this);
+                var total=parseInt($('#total').text());
+                var goods_ids=_this.attr('goods_ids');
+                    location.href="/order/generate?goods_id="+goods_ids;
+            });
+        })
+    </script>
+
 @endsection
