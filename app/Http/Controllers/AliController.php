@@ -19,7 +19,7 @@ class AliController extends Controller
         $common_param = [
             'out_trade_no' => '1910team_'.time().'_'.mt_rand(11111,99999),   //商户订单号  随机
             'product_code' => 'FAST_INSTANT_TRADE_PAY',  //销售产品码
-            'total_amount'=>'88.88',                    //订单的总金额
+            'total_amount'=>88.88,                    //订单的总金额
             'subject' => '测试:'.mt_rand(11111,99999),   //订单名称
         ];
         // print_r($common_param['out_trade_no']);die;
@@ -32,9 +32,13 @@ class AliController extends Controller
             'sign_type' => 'RSA2',   //算法类型
             'timestamp' => date('Y-m-d H:i:s'),    //请求时间
             'version' => '1.0',     //接口调用版本
-            'biz_content' => json_encode($common_param)        //请求参数集合
+            'biz_content' => json_encode($common_param),        //请求参数集合
+            'return_url' => 'http://shop.1910.com',    
+            'notify_url' => 'http://api.test.alipay.net/atinterface/receive_notify.htm'
         ];
         // var_dump($pub_param['biz_content']);die;
+
+       
 
         //排序
         $params = array_merge($common_param,$pub_param);
@@ -55,7 +59,7 @@ class AliController extends Controller
         openssl_sign($str,$sign,$res,OPENSSL_ALGO_SHA256);
         $sign = base64_encode($sign);   
         $request_url2 = $request_url.'&sign='.urlencode($sign);
-        //echo $request_url2;die;
+        // echo $request_url2;die;
         header('Location:'.$request_url2);
 
     }
