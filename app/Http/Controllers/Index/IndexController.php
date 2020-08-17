@@ -15,34 +15,34 @@ class IndexController extends Controller
         $user_autner = $request->post('user_autner');
         if(empty($user_autner)){
             echo $this->location_href('账号为空...');
-            exit;
+
         }else{
             $res = UserModel::where('user_autner',$user_autner)->first('user_autner');
             if ($res){
                 echo $this->location_href('账号已被注册...');
-                exit;
+
             }
         }
         $user_email = $request->post('user_email');
         if (empty($user_email)){
             echo $this->location_href('邮箱为空');
-            exit;
+
         }else{
             $res = UserModel::where('user_email',$user_email)->first('user_email');
             if ($res){
                 echo $this->location_href('邮箱已被绑定...');
-                exit;
+
             }
         }
         $user_passwd = $request->post('user_passwd');
         $user_passwd1 = $request->post('user_passwd1');
         if (empty($user_passwd)){
             echo $this->location_href('密码为空...');
-            exit;
+
         }else{
             if (empty($user_passwd1)){
                 echo $this->location_href('确认密码为空...');
-                exit;
+
             }else{
                 if ($user_passwd==$user_passwd1){
                     $user_pwd = password_hash($user_passwd,PASSWORD_DEFAULT);
@@ -54,14 +54,14 @@ class IndexController extends Controller
                     $id = UserModel::insertGetId($data);
                     if ($id){
                         echo $this->location_href('注册成功',url('/login'));
-                        exit;
+
                     }else{
                         echo $this->location_href('网络错误稍后再试...');
-                        exit;
+
                     }
                 }else{
                     echo $this->location_href('两次密码不一致...');
-                    exit;
+
                 }
             }
         }
@@ -70,6 +70,7 @@ class IndexController extends Controller
 
     //登录逻辑
     public function login(Request $request){
+
         $user_autner = $request->post('user_autner');
         $user_pwd = $request->post('user_pwd');
         if (empty($user_autner)){
@@ -78,14 +79,12 @@ class IndexController extends Controller
         }else{
             $res = UserModel::where('user_autner',$user_autner)->first();
             if ($res){
-
                 $session = [
                     'user_id' =>$res->user_id,
                     'user_autner' =>$res->user_autner,
                     'user_name' =>$res->user_name,
                 ];
                 if (password_verify($user_pwd,$res->user_pwd)){
-
                     session(['user' =>$session]);
                     echo  $this->location_href('登录成功',url('/'));
                 }else{
@@ -93,9 +92,15 @@ class IndexController extends Controller
                 }
             }else{
                 echo $this->location_href('账号或密码错误...');
-                exit;
             }
         }
+
+    }
+
+
+    public function quit(){
+        session()->flush('user');
+        echo $this->location_href('退出成功，跳转至登录',url('/login'));
 
     }
 
@@ -116,6 +121,7 @@ class IndexController extends Controller
     public function test(Request $request){
         //$session = $request->session()->get('key');
         $s = session()->all();
+
         var_dump($s);
     }
 }
