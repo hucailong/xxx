@@ -17,6 +17,7 @@ class Controller extends BaseController
     {
         $this->now = time();
         $this->uuid = $_COOKIE['uuid'];     //用户标识
+
     }
     public function cartList()
     {

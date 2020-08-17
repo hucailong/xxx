@@ -20,13 +20,13 @@
 //});
 
 
-    Route::domain('admin.shop.1910.com')->group(function(){
+    Route::domain(env('ITEM_HOSTS_HTTP_ADMIN'))->group(function(){
         Route::get('/',function(){
             return redirect('/admin');
         });
     });
 
-    Route::domain('shop.1910.com')->group(function () {
+    Route::domain(env('ITEM_HOSTS_HTTP'))->group(function () {
 
         Route::get('/','Index\Product_listController@index'); //前台展示
     //    商品
@@ -51,26 +51,27 @@
 
 
 
+
         Route::get('/','Index\Product_listController@index'); //前台首页展示
 
         //   商品
         Route::get('/product_list','Index\Product_listController@product_list'); //商品展示
         Route::get('/product_details/{good_id}','Index\Product_listController@product_details');   //商品详情
+
+
+
+
           //商品详情
-        Route::view('/wishlist','Index.wishlist');  //我的收藏
+        Route::get('/wishlist_list','Index\WishController@wishlist');  //我的收藏
         //评价
         Route::post('/comment','Index\CommentController@comment');
-
+        //Route::('/wishlist_list','Index\Product_listController@product_details');   //商品详情
         Route::post('/collect_do','Index\Product_listController@collect_do'); //收藏
-
-//
-
 
 
         Route::get('github','GitHubController@index'); //github视图
         Route::get('github/callback','GitHubController@callback'); //github回调
         Route::get('alipay','AliController@alipay'); //支付
-
 
         Route::view('/checkout','Index.checkout');  //支付
         Route::view('/blog','Index.blog');  //历史记录
@@ -96,8 +97,15 @@
         Route::post('/back/reset','Index\BackController@reset'); //
 
 
+//	服务
+        Route::view('/Free_shipping','Index.Free_shipping');
+        Route::view('/fast_refund','Index.fast_refund');
+        Route::view('/Secure_payment','Index.Secure_payment');
+        Route::view('/return','Index.return');
+
+
+
 
 
 
     });
-

@@ -10,13 +10,13 @@ use Illuminate\Support\Facades\Redis;
 
 class Product_listController extends Controller
 {
-//    public $uuid;
-//    public $now;
-//    public function __construct()
-//    {
-//        $this->now = time();
-//        $this->uuid = $_COOKIE['uuid'];
-//    }
+    public $uuid;
+    public $now;
+    public function __construct()
+    {
+        $this->now = time();
+        $this->uuid = $_COOKIE['uuid'];
+    }
     public function index(){
 
 
@@ -30,7 +30,7 @@ class Product_listController extends Controller
         //文件名
         $fileName = "buffer.html";
         //过期时间
-        $cache = 180;
+        $cache = 80;
         //判断如果文件存在 或者 当前时间减创建时间小于过期时间则
         if(file_exists($fileName) && time()-filemtime($fileName)<$cache){
 //            echo "有缓存";echo "<br>";
@@ -41,8 +41,10 @@ class Product_listController extends Controller
 
 
         $is_now = GoodsModel::where('is_new',1)->orderBy('goods_id','DESC')->limit(6)->get()->toArray();
-        $is_hot = GoodsModel::where('is_hot',1)->orderBy('sale_num','DESC')->limit(4)->get()->toArray();
-        $is_slideshow = GoodsModel::where('is_hot',1)->orderBy('sale_num','DESC')->limit(3)->get()->toArray();
+        $is_hot = GoodsModel::where('is_hot',2)->orderBy('sale_num','DESC')->limit(4)->get()->toArray();
+
+        $is_slideshow = GoodsModel::where('is_hot',1)->orderBy('is_new','ASC')->limit(3)->get()->toArray();
+            // dd($is_slideshow);
         //开启静态缓存
         ob_start();
         //生成页面

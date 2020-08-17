@@ -33,9 +33,13 @@ class AliController extends Controller
             'sign_type' => 'RSA2',   //算法类型
             'timestamp' => date('Y-m-d H:i:s'),    //请求时间
             'version' => '1.0',     //接口调用版本
-            'biz_content' => json_encode($common_param)        //请求参数集合
+            'biz_content' => json_encode($common_param),        //请求参数集合
+            'return_url' => 'http://shop.1910.com',
+            'notify_url' => 'http://api.test.alipay.net/atinterface/receive_notify.htm'
         ];
         // var_dump($pub_param['biz_content']);die;
+
+
 
         //排序
         $params = array_merge($common_param,$pub_param);
@@ -55,7 +59,7 @@ class AliController extends Controller
         openssl_sign($str,$sign,$res,OPENSSL_ALGO_SHA256);
         $sign = base64_encode($sign);
         $request_url2 = $request_url.'&sign='.urlencode($sign);
-        //echo $request_url2;die;
+        // echo $request_url2;die;
         header('Location:'.$request_url2);
 
     }

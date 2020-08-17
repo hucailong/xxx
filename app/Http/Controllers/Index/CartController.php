@@ -20,6 +20,7 @@ class CartController extends Controller
 
     public function cartList()
     {
+
         $redis_cart_ss1 = 'ss:cart:goods:'.$this->uuid;         //商品
         $redis_cart_ss2 = 'ss:cart:goods_num:'.$this->uuid;     //商品个数
 
