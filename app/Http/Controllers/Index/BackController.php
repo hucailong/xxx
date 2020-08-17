@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Hash;
 class BackController extends Controller
 {
     public function back(){
-
         return view('back.pwd');
     }
 

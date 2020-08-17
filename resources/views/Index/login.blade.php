@@ -17,14 +17,14 @@
                         <div class="input-field">
                             <input type="password" class="validate" placeholder="密码" required name="user_pwd">
                         </div>
-                        <h4><a href="">忘了密码</a>
+{{--                        <h4><a href="">忘了密码</a>--}}
                         <a href="/back/pwd">找回密码</a><br></h4>
                         <input type="submit" class="btn button-default" value="登录">
                     </form>
                     <h6>其他方式登录 ↓</h6><br>
 
                     <a href="{{url('github')}}">
-                            <img src="/timg.jfif" width="30px" height="30px" style="border-radius:50%;overflow:hidden;">  
+                            <img src="/timg.jfif" width="30px" height="30px" style="border-radius:50%;overflow:hidden;">
                     <a href="">
                         <img src="/1597299090(1).png" width="50px" height="35px" style="border-radius:50%;overflow:hidden;">
                     </a>
