@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title', '前台')
 @section('content')
+
     <!-- product_details -->
     <div class="pages section">
         <div class="container">
@@ -82,6 +83,7 @@
             }
         );
     </script>
+
     <script src="/Index/js/jquery.min.js"></script>
     <script>
         $("#collect").click(function(e){
@@ -103,7 +105,6 @@
         });
 
     </script>
-
     <!-- <script>
         $(document).ready(function () {
             $("#cart").click(function(){

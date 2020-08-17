@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title', '前台')
 @section('content')
+
     <!-- about us -->
     <div class="pages section">
         <div class="container">

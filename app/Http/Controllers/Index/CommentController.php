@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Index;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Index\CommentModel;
+use Illuminate\Support\Facades\Redis;
 
 class CommentController extends Controller
 {
@@ -40,7 +41,11 @@ class CommentController extends Controller
             echo "添加评论失败，failure";
             header("refresh:2;url=/index/product_details/".$goods_id);
         }
-    }
+
+        //添加评论排行榜
+        $redis_comment_fav_list_key = 'ss:comment_goods_rank';
+        Redis::zIncrBy($redis_comment_fav_list_key,1,$goods_id);
+    }   
 
 }
 ?>

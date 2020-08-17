@@ -22,8 +22,11 @@
     <link rel="stylesheet" href="/Index/css/aliplayer-min.css">
     <link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.8.8/skins/default/aliplayer-min.css" />
     <script type="text/javascript" charset="utf-8" src="https://g.alicdn.com/de/prismplayer/2.8.8/aliplayer-min.js"></script>
+    <script src="/Index/js/jscookie.min.js"></script>
+    <script src="/Index/js/init.js"></script>
+
     <script src="/Index/js/jquery.min.js"></script>
-   
+
 
 </head>
 <body>
@@ -380,6 +383,6 @@
 <script src="/Index/js/animatedModal.min.js"></script>
 <script src="/Index/js/main.js"></script>
 <script src="/Index/js/js.cookie-2.2.1.min.js"></script>
-<script src="/Index/js/init.js"></script>
+
 </body>
 </html>
