@@ -31,7 +31,7 @@
             </div>
 
 
-                {{ $data->appends(['s'=>$_GET['s']])->links() }}
+                {{ @$data->appends(['s'=>$_GET['s']])->links() }}
 
         </div>
     </div>
