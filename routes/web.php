@@ -40,10 +40,10 @@
 
 
 
-    Route::prefix('/cart')->group(function (){  //购物车
-       Route::get('/addcart','Index\CartController@addcart');  //加入购物车
-        Route::get('/index','Index\CartController@cartList');  //购物车页面
-    });
+        Route::prefix('/cart')->group(function (){  //购物车
+           Route::get('/addcart','Index\CartController@addcart');  //加入购物车
+            Route::get('/index','Index\CartController@cartList');  //购物车页面
+        });
 
 
         Route::get('/','Index\Product_listController@index'); //前台首页展示
@@ -62,14 +62,10 @@
         //Route::('/wishlist_list','Index\Product_listController@product_details');   //商品详情
         Route::post('/collect_do','Index\Product_listController@collect_do'); //收藏
 
-//
-
-
 
         Route::get('github','GitHubController@index'); //github视图
         Route::get('github/callback','GitHubController@callback'); //github回调
         Route::get('alipay','AliController@alipay'); //支付
-
 
         Route::view('/checkout','Index.checkout');  //支付
         Route::view('/blog','Index.blog');  //历史记录
