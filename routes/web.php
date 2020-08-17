@@ -65,8 +65,9 @@
         Route::get('/wishlist_list','Index\WishController@wishlist');  //我的收藏
         //评价
         Route::post('/comment','Index\CommentController@comment');
+
+        Route::get('/collect','Index\Product_listController@collect'); //收藏
         //Route::('/wishlist_list','Index\Product_listController@product_details');   //商品详情
-        Route::post('/collect_do','Index\Product_listController@collect_do'); //收藏
 
 
         Route::get('github','GitHubController@index'); //github视图

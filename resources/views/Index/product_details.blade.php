@@ -86,21 +86,24 @@
 
     <script src="/Index/js/jquery.min.js"></script>
     <script>
-        $(function () {
-            $(document).on('click', '#Collection', function () {
-                var _this = $(this);
-                var goods_id = _this.attr('goods_id');
-                $.ajax({
-                    type: "POST",
-                    url: "/collect_do",
-                    data: {"goods_id": goods_id},
-                    dataType: "json",
-                    success: function (data) {
-
+        $("#collect").click(function(e){
+            var gid = ($(this).attr('goods_id'))
+            $.ajax({
+                url: '/collect?goods_id=' + gid,
+                type: 'get',
+                dataType: 'json',
+                success:function(d){
+                    if(d.errno==100001){
+                        alert(d.msg);
+                        location.href='/login';
+                    }else{
+                        alert(d.msg);
+                        $("#collect").text("已收藏");
                     }
-                });
+                }
             });
         });
+
     </script>
     <!-- <script>
         $(document).ready(function () {
