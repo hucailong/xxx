@@ -16,7 +16,6 @@
                 </div>
                 <button type="button" data-gid="{{$good_info['goods_id']}}" id="cart_add" class="btn button-default">加入购物车</button>
                 <button type="button" class="btn button-default" goods_id="{{$good_info['goods_id']}}" id="Collection">收藏</button>
-                <a href="/wishlist_list" class="btn button-default" goods_id="{{$good_info['goods_id']}}" id="Collection">查看收藏排行榜</a>
             </div>
             <div class="comment">
                 <h5>评价</h5>

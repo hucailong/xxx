@@ -10,12 +10,10 @@ use Illuminate\Support\Facades\Redis;
 
 class Product_listController extends Controller
 {
-    public $uuid;
     public $now;
     public function __construct()
     {
         $this->now = time();
-        $this->uuid = $_COOKIE['uuid'];
     }
     public function index(){
 

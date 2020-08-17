@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Index\OrderModel;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Redis;
 
 class AliController extends Controller
 {
@@ -59,8 +61,15 @@ class AliController extends Controller
         openssl_sign($str,$sign,$res,OPENSSL_ALGO_SHA256);
         $sign = base64_encode($sign);
         $request_url2 = $request_url.'&sign='.urlencode($sign);
-        // echo $request_url2;die;
-        header('Location:'.$request_url2);
+        if($request_url2){
+            $goodslist=$this->cartList();
+            foreach ($goodslist as $key => $value) {
+                $goods_id=$value['id'];
+                OrderModel::where(['goods_id'=>$goods_id])->update(['status'=>1]);
+                header('Location:'.$request_url2);
+
+            }
+        }
 
     }
 }
