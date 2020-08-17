@@ -20,13 +20,13 @@
 //});
 
 
-    Route::domain('admin.shop.1910.com')->group(function(){
+    Route::domain(env('ITEM_HOSTS_HTTP_ADMIN'))->group(function(){
         Route::get('/',function(){
             return redirect('/admin');
         });
     });
 
-    Route::domain('shop.1910.com')->group(function () {
+    Route::domain(env('ITEM_HOSTS_HTTP'))->group(function () {
 
         Route::get('/','Index\Product_listController@index'); //前台展示
     //    商品
@@ -103,4 +103,3 @@
 
 
     });
-
