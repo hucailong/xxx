@@ -19,7 +19,7 @@
 //    return view('welcome');
 //});
 
-
+Route::get('/test','Index\IndexController@test');
     Route::domain(env('ITEM_HOSTS_HTTP_ADMIN'))->group(function(){
         Route::get('/',function(){
             return redirect('/admin');
@@ -40,34 +40,16 @@
 
 
 
-    Route::prefix('/cart')->group(function (){  //购物车
-       Route::get('/addcart','Index\CartController@addcart');  //加入购物车
-        Route::get('/index','Index\CartController@cartList');  //购物车页面
-    });
-        Route::prefix('/order')->group(function (){  //订单
-            Route::get('/generate','Index\OrderController@generate');
+        Route::prefix('/cart')->group(function (){  //购物车
+           Route::get('/addcart','Index\CartController@addcart');  //加入购物车
+            Route::get('/index','Index\CartController@cartList');  //购物车页面
         });
 
-
-
-
-
-        Route::get('/','Index\Product_listController@index'); //前台首页展示
-
-        //   商品
-        Route::get('/product_list','Index\Product_listController@product_list'); //商品展示
-        Route::get('/product_details/{good_id}','Index\Product_listController@product_details');   //商品详情
-
-
-
-
-          //商品详情
         Route::get('/wishlist_list','Index\WishController@wishlist');  //我的收藏
         //评价
         Route::post('/comment','Index\CommentController@comment');
-
-        Route::get('/collect','Index\Product_listController@collect'); //收藏
         //Route::('/wishlist_list','Index\Product_listController@product_details');   //商品详情
+        Route::post('/collect_do','Index\Product_listController@collect_do'); //收藏
 
 
         Route::get('github','GitHubController@index'); //github视图
@@ -85,6 +67,7 @@
     //    登录
         Route::view('/login','Index.login');
         Route::post('/login','Index\IndexController@login');
+        Route::get('/quit','Index\IndexController@quit');
     //    注册
         Route::view('/register','Index.register');
         Route::post('/register','Index\IndexController@register');
@@ -92,21 +75,9 @@
     //    定时任务 <视频转码>
 	Route::get('/vedioCron','Index\VedioCron@codec');
 
-        Route::get('/back/pwd','Index\BackController@back'); //找回密码
-        Route::post('/back/pwds','Index\BackController@backs'); //找回密码
-        Route::get('/back/resetpass','Index\BackController@resetpass'); //
-        Route::post('/back/reset','Index\BackController@reset'); //
-
-
 //	服务
         Route::view('/Free_shipping','Index.Free_shipping');
         Route::view('/fast_refund','Index.fast_refund');
         Route::view('/Secure_payment','Index.Secure_payment');
         Route::view('/return','Index.return');
-
-
-
-
-
-
     });
