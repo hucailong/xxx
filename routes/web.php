@@ -72,6 +72,10 @@ Route::get('/test','Index\IndexController@test');
         Route::view('/register','Index.register');
         Route::post('/register','Index\IndexController@register');
 
+    //获取验证码
+        Route::post('/verify_code','Index\IndexController@verify_code');
+
+
     //    定时任务 <视频转码>
 	Route::get('/vedioCron','Index\VedioCron@codec');
 
