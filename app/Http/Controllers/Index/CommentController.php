@@ -15,6 +15,8 @@ class CommentController extends Controller
      */
     public function comment(Request $request)
     {
+        $user_id=session('user.user_id');
+//        var_dump($user_id);die;
         $goods_id = $request->input('goods_id');
         $comment_name = $request->input('comment_name');
         $email = $request->input('email');
@@ -31,21 +33,28 @@ class CommentController extends Controller
             'email' => $email,
             'subject'   => $subject,
             'comment_desc'   => $comment_desc,
+            'user_id' => $user_id,
             'add_time'  => $add_time
         ];
-        $res = CommentModel::insert($data);
-        if($res>0){
-            echo "添加评论成功，OK";
-            header("refresh:2;url=/product_details/".$goods_id);
-        }else{
-            echo "添加评论失败，failure";
-            header("refresh:2;url=/index/product_details/".$goods_id);
+
+        if($user_id==''){
+            echo "请先进行登录";
+            header("refresh:2;url=/login");die;
         }
 
+        $res = CommentModel::insert($data);
+            if ($res > 0) {
+                echo "添加评论成功，OK";
+                header("refresh:2;url=/product_details/" . $goods_id);
+            } else {
+                echo "添加评论失败，failure";
+                header("refresh:2;url=/index/product_details/" . $goods_id);
+            }
+
         //添加评论排行榜
-        $redis_comment_fav_list_key = 'ss:comment_goods_rank';
-        Redis::zIncrBy($redis_comment_fav_list_key,1,$goods_id);
-    }   
+        //$redis_comment_fav_list_key = 'ss:comment_goods_rank';
+        //Redis::zIncrBy($redis_comment_fav_list_key,1,$goods_id);
+    }
 
 }
 ?>
