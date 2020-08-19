@@ -15,6 +15,9 @@
                         <div class="input-field">
                             <input type="password" name="passord" class="validate" placeholder="请输入密码" required>
                         </div>
+                        <div class="input-field">
+                            <input type="password" name="passord" class="validate" placeholder="确认密码" required>
+                        </div>
                         <input class="btn button-default" type="submit">
                     </form>
                 </div>
