@@ -32,7 +32,8 @@
 </form>
 </body>
 </html>
-
+<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-message-box@3.2.2/dist/messagebox.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://g.alicdn.com/de/prismplayer/2.8.8/aliplayer-min.js"></script>
 <script>
     $(function(){
         $(document).on('click','.submit',function (){
@@ -45,12 +46,12 @@
                 type:'post',
                 success:function (res){
                     if(res.error_no==0){
-                        alert(res.error_msg);
+                        $.MessageBox(res.error_msg);
                         location.href="/alipay?order_id="+res.order_id;
                          // header("refresh:2;url=/alipay?total=".$total);
 
                     }else{
-                        alert(res.error_msg);
+                        $.MessageBox(res.error_msg);
                     }
                 }
             });

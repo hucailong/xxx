@@ -94,10 +94,10 @@
                 dataType: 'json',
                 success:function(d){
                     if(d.errno==100001){
-                        alert(d.msg);
+                        $.MessageBox(d.msg);
                         location.href='/login';
                     }else{
-                        alert(d.msg);
+                        $.MessageBox(d.msg);
                         $("#collect").text("已收藏");
                     }
                 }
