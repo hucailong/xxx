@@ -46,7 +46,7 @@
                 success:function (res){
                     if(res.error_no==0){
                         alert(res.error_msg);
-                        location.href="/alipa/yalipay?order_id="+res.order_id;
+                        location.href="/alipay?order_id="+res.order_id;
                          // header("refresh:2;url=/alipay?total=".$total);
 
                     }else{

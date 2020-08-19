@@ -68,8 +68,11 @@ Route::get('/test','Index\IndexController@test');
         Route::get('/wishlist_list','Index\WishController@wishlist');  //我的收藏
         //评价
         Route::post('/comment','Index\CommentController@comment');
+        //Route::('/wishlist_list','Index\Product_listController@product_details');   //商品详情
         Route::get('/collect','Index\Product_listController@collect'); //收藏
+
         Route::get('/alipay/yonghu','AliController@yonghu'); //github视图
+
         Route::get('github','GitHubController@index'); //github视图
         Route::get('github/callback','GitHubController@callback'); //github回调
         Route::get('alipay','AliController@alipay'); //支付
@@ -86,12 +89,22 @@ Route::get('/test','Index\IndexController@test');
         Route::view('/login','Index.login');
         Route::post('/login','Index\IndexController@login');
         Route::get('/quit','Index\IndexController@quit');
-    //    注册
+        Route::get('/back/pwd','Index\BackController@back');
+        Route::post('/back/pwds','Index\BackController@backs');
+        Route::get('/back/resetpass','Index\BackController@resetpass');
+        Route::post('/back/reset','Index\BackController@reset');
+
+
+
+
+        //    注册
         Route::view('/register','Index.register');
         Route::post('/register','Index\IndexController@register');
 
     //获取验证码
         Route::post('/verify_code','Index\IndexController@verify_code');
+
+
     //    定时任务 <视频转码>
 	Route::get('/vedioCron','Index\VedioCron@codec');
 
