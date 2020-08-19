@@ -16,7 +16,6 @@ class AliController extends Controller
     {
         $order_id=request()->get('order_id');
         $order=OrderModel::where(['order_id'=>$order_id])->first();
-//        dd($order['order_on']);
         $client = new Client();
         $url = 'https://openapi.alipaydev.com/gateway.do';      //沙箱环境
         //请求参数
