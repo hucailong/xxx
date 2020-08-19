@@ -55,15 +55,14 @@
         <li><a href="{{url('index/setting')}}"><i class="fa fa-cog"></i>个人信息</a></li>
         <li><a href="{{url('index/about_us')}}"><i class="fa fa-user"></i>About Us</a></li>
         <li><a href="{{url('index/contact')}}"><i class="fa fa-envelope-o"></i>联系客服</a></li>
-        <li><a href="{{url('/register')}}"><i class="fa fa-user-plus"></i>注册</a></li>
-        <li><a href="{{url('/login')}}"><i class="fa fa-sign-in"></i>登录</a></li>
+        <li><a href="{{url('/quit')}}"><i class="fa fa-sign-in"></i>退出</a></li>
     </ul>
     <?php }else{?>
         <ul id="slide-out-right" class="side-nav side-nav-panel collapsible">
             <li class="profil">
                 <img src="/Index/img/profile.jpg" alt="">
             </li>
-            <li><a href="{{url('/login')}}"><i class="fa fa-sign-in"></i>登录</a></li>
+            <li>请，<a href="{{url('/login')}}"><i class="fa fa-sign-in"></i>登录</a></li>
             <li><a href="{{url('/register')}}"><i class="fa fa-user-plus"></i>注册</a></li>
         </ul>
     <?php }?>

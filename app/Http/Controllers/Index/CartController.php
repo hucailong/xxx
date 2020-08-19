@@ -11,18 +11,16 @@ class CartController extends Controller
 {
 
     public $now;
-    public $uuid;
     public function __construct()
     {
         $this->now = time();
-        $this->uuid = $_COOKIE['uuid'];     //用户标识
     }
 
     public function cartList()
     {
 
-        $redis_cart_ss1 = 'ss:cart:goods:'.$this->uuid;         //商品
-        $redis_cart_ss2 = 'ss:cart:goods_num:'.$this->uuid;     //商品个数
+        $redis_cart_ss1 = 'ss:cart:goods:'.$_COOKIE['uuid'];         //商品
+        $redis_cart_ss2 = 'ss:cart:goods_num:'.$_COOKIE['uuid'];     //商品个数
 
         $cart_goods = Redis::zrevRange($redis_cart_ss1,0,-1,true);      //按添加购物车顺序显示商品
 
