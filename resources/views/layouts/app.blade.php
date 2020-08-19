@@ -382,6 +382,7 @@
 <script src="/Index/js/animatedModal.min.js"></script>
 <script src="/Index/js/main.js"></script>
 <script src="/Index/js/js.cookie-2.2.1.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-message-box@3.2.2/dist/messagebox.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://g.alicdn.com/de/prismplayer/2.8.8/aliplayer-min.js"></script>
 </body>
 </html>
