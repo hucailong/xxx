@@ -113,4 +113,13 @@ Route::get('/test','Index\IndexController@test');
         Route::view('/fast_refund','Index.fast_refund');
         Route::view('/Secure_payment','Index.Secure_payment');
         Route::view('/return','Index.return');
+
+
+    Route::get('/findpass','FindPassController@findpass'); //修改密码
+    Route::post('/findpassdo','FindPassController@findpassdo'); //执行修改密码
+
+
+
+
+
     });
