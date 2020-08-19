@@ -11,28 +11,14 @@
                 <h3>您的购物车是空的,赶快去添加商品吧!</h3>
             </div>
             <div class="total">
-                <div class="row">
-                    <div class="col s7">
-                        <h5>Fashion Men's</h5>
-                    </div>
-                    <div class="col s5">
-                        <h5>$21.00</h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s7">
-                        <h5>Fashion Men's</h5>
-                    </div>
-                    <div class="col s5">
-                        <h5>$20.00</h5>
-                    </div>
-                </div>
+
+
                 <div class="row">
                     <div class="col s7">
                         <h6>Total</h6>
                     </div>
                     <div class="col s5">
-                        <h6>$41.00</h6>
+                        <h6>$0</h6>
                     </div>
                 </div>
             </div>

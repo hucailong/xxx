@@ -15,23 +15,23 @@
             <div class="row">
                 @foreach($data as $v)
 
-                <div class="col s6">
-                    <div class="content">
-                        <img src="/storage/{{$v['goods_img']}}" alt="">
-                        <h6><a href="">{{$v['goods_name']}}</a></h6>
-                        <div class="price">
-                            {{$v['shop_price']}} <span>$28</span>
+                    <div class="col s6">
+                        <div class="content">
+                            <img src="/storage/{{$v['goods_img']}}" alt="">
+                            <h6><a href="">{{$v['goods_name']}}</a></h6>
+                            <div class="price">
+                                {{$v['shop_price']}} <span>$28</span>
+                            </div>
+                            <a href="{{url('/index/addcart/'.$v['goods_id'])}}"><button type="button" class="btn button-default">加入购物车</button></a>
                         </div>
-                        <a href="{{url('/index/addcart/'.$v['goods_id'])}}"><button type="button" class="btn button-default">加入购物车</button></a>
+                        <div class="row"></div>
                     </div>
-                    <div class="row"></div>
-                </div>
                 @endforeach
 
             </div>
 
 
-                {{ $data->appends(['s'=>$_GET['s']])->links() }}
+            {{ @$data->appends(['s'=>$_GET['s']])->links() }}
 
         </div>
     </div>

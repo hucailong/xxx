@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title', '前台')
 @section('content')
+
     <!-- product_details -->
     <div class="pages section">
         <div class="container">
@@ -14,8 +15,7 @@
                     <input type="hidden" style="" value="1" class="n_ipt" id="num" />
                 </div>
                 <button type="button" data-gid="{{$good_info['goods_id']}}" id="cart_add" class="btn button-default">加入购物车</button>
-                <button type="button" class="btn button-default" goods_id="{{$good_info['goods_id']}}" id="Collection">收藏</button>
-                <a href="/wishlist_list" class="btn button-default" goods_id="{{$good_info['goods_id']}}" id="Collection">查看收藏排行榜</a>
+                <button type="button" class="btn button-default" goods_id="{{$good_info['goods_id']}}" id="collect">收藏</button>
             </div>
             <div class="comment">
                 <h5>评价</h5>
@@ -83,26 +83,28 @@
             }
         );
     </script>
+
     <script src="/Index/js/jquery.min.js"></script>
     <script>
-        $(function (){
-            $(document).on('click','#Collection',function (){
-                var _this=$(this);
-                var goods_id=_this.attr('goods_id');
-                $.ajax({
-                    type: "POST",
-                    url: "/collect_do",
-                    data:{"goods_id":goods_id},
-                    dataType: "json",
-                    success:function(data){
-
+        $("#collect").click(function(e){
+            var gid = ($(this).attr('goods_id'))
+            $.ajax({
+                url: '/collect?goods_id=' + gid,
+                type: 'get',
+                dataType: 'json',
+                success:function(d){
+                    if(d.errno==100001){
+                        alert(d.msg);
+                        location.href='/login';
+                    }else{
+                        alert(d.msg);
+                        $("#collect").text("已收藏");
                     }
-                });
-            })
-        })
+                }
+            });
+        });
 
     </script>
-
     <!-- <script>
         $(document).ready(function () {
             $("#cart").click(function(){
