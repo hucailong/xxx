@@ -5,27 +5,19 @@
     <div class="pages section">
         <div class="container">
             <div class="pages-head">
-                <h3>SETTINGS</h3>
+                <h3>个人中心</h3>
             </div>
             <div class="register">
                 <div class="row">
                     <form class="col s12">
+                    <h2>安全设置</h2>
                         <div class="input-field">
-                            <input type="text" class="validate" placeholder="First Name" required>
+                           <h4> <a href="\findpass">修改密码</a></h4>
                         </div>
-                        <div class="input-field">
-                            <input type="text" class="validate" placeholder="Last Name" required>
+                             <p></p>
+                        <div>
                         </div>
-                        <div class="input-field">
-                            <input type="text" class="validate" placeholder="Username" required>
-                        </div>
-                        <div class="input-field">
-                            <input type="email" placeholder="Email" class="validate" required>
-                        </div>
-                        <div class="input-field">
-                            <input type="password" placeholder="Password" class="validate" required>
-                        </div>
-                        <div class="btn button-default">SAVE CANGES</div>
+                        
                     </form>
                 </div>
             </div>
