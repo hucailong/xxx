@@ -25,7 +25,7 @@ class VedioController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new VideoModel());
-
+        $grid->model()->orderBy('id','desc');
         $grid->column('id', __('Id'));
         $grid->column('goods_id', __('Goods id'));
         $grid->column('path', __('Path'));

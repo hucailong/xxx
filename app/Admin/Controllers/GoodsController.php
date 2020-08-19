@@ -25,7 +25,7 @@ class GoodsController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new GoodsModel());
-
+        $grid->model()->orderBy('goods_id','desc');
         $grid->column('goods_id', __('商品 id'));
         $grid->column('goods_sn', __('商品编号'));
         $grid->column('goods_name', __('商品名称'));

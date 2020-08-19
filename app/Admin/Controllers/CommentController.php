@@ -25,7 +25,7 @@ class CommentController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new CommentModel());
-
+        $grid->model()->orderBy('comment_id','desc');
         $grid->column('comment_id', __('Comment id'));
         $grid->column('goods_id', __('Goods id'));
         $grid->column('comment_name', __('Comment name'));
