@@ -11,18 +11,16 @@ class CartController extends Controller
 {
 
     public $now;
-    public $uuid;
     public function __construct()
     {
         $this->now = time();
-        $this->uuid = $_COOKIE['uuid'];     //用户标识
     }
 
     public function cartList()
     {
 
-        $redis_cart_ss1 = 'ss:cart:goods:'.$this->uuid;         //商品
-        $redis_cart_ss2 = 'ss:cart:goods_num:'.$this->uuid;     //商品个数
+        $redis_cart_ss1 = 'ss:cart:goods:'.$_COOKIE['uuid'];         //商品
+        $redis_cart_ss2 = 'ss:cart:goods_num:'.$_COOKIE['uuid'];     //商品个数
 
         $cart_goods = Redis::zrevRange($redis_cart_ss1,0,-1,true);      //按添加购物车顺序显示商品
 
@@ -46,23 +44,25 @@ class CartController extends Controller
         $total=0;
         $goods_ids=[];
         foreach ($goods as $key => $value) {
-
-            $total += $goods[$key]['shop_price'];
+            //总价
+            $total += $goods[$key]['shop_price'] * $value['num'];
+//            goods_id
             $goods_id[] = $goods[$key]['id'].',';
-//            str +=$(this).parents('tr').attr('goods_id')+',';
 
         }
+
         $goods_ids=implode($goods_id);
         $goods_ids=trim($goods_ids);
         $goods_ids = substr($goods_ids,0,strlen($goods_ids)-1);
 
 
 //     echo '<pre>';print_r($goods);echo '</pre>';die;
-
+        $user_id=session('user.user_id');
         $data = [
             'goods' => $goods,
             'total'=> $total,
-            'goods_ids' => $goods_ids
+            'goods_ids' => $goods_ids,
+            'user_id' => $user_id
         ];
 //
         return  view('Index.cart',$data);

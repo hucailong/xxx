@@ -66,7 +66,7 @@
                     </div>
                 </div>
             </div>
-            <button class="btn button-default" goods_ids="{{$goods_ids}}">提交订单</button>
+            <button class="btn button-default" user_id="{{$user_id}}" goods_ids="{{$goods_ids}}">提交订单</button>
         </div>
     </div>
     <!-- end cart -->
@@ -77,7 +77,13 @@
                 var _this=$(this);
                 var total=parseInt($('#total').text());
                 var goods_ids=_this.attr('goods_ids');
-                    location.href="/order/generate?goods_id="+goods_ids;
+                var user_id=_this.attr('user_id');
+                if(user_id==""){
+                    alert('请登录');
+                    location.href="/login";
+                    return false;
+                }
+                    location.href="/order/queren?goods_id="+goods_ids;
             });
         })
     </script>

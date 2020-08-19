@@ -19,23 +19,23 @@
 //    return view('welcome');
 //});
 
-
+Route::get('/test','Index\IndexController@test');
     Route::domain(env('ITEM_HOSTS_HTTP_ADMIN'))->group(function(){
         Route::get('/',function(){
             return redirect('/admin');
         });
     });
 
-    Route::domain(env('ITEM_HOSTS_HTTP'))->group(function () {
+    Route::domain(env('`ITEM_HOSTS_HTTP`'))->group(function () {
 
         Route::get('/','Index\Product_listController@index'); //前台展示
     //    商品
-        Route::view('/index/product_list','Index.product_list'); //商品展示
-        Route::get('/index/product_details/{good_id}','Index\Product_listController@product_details');   //商品详情
+        Route::view('/product_list','Index.product_list'); //商品展示
+        Route::get('/product_details/{good_id}','Index\Product_listController@product_details');   //商品详情
 
-        Route::post('/index/comment','Index\CommentController@comment');  //添加评论
+        Route::post('/comment','Index\CommentController@comment');  //添加评论
 
-        Route::get('/index/addcart/{good_id}','Index\CartController@addcart');  //加入购物车
+        Route::get('/addcart/{good_id}','Index\CartController@addcart');  //加入购物车
         Route::view('/wishlist','Index.wishlist');  //我的收藏
 
 
@@ -45,31 +45,31 @@
         Route::get('/index','Index\CartController@cartList');  //购物车页面
     });
         Route::prefix('/order')->group(function (){  //订单
+            Route::get('/queren','Index\OrderController@queren');
             Route::get('/generate','Index\OrderController@generate');
+            Route::any('/orderSubmit','Index\OrderController@orderSubmit');
+
+
         });
-
-
-
-
 
         Route::get('/','Index\Product_listController@index'); //前台首页展示
 
         //   商品
-        Route::get('/product_list','Index\Product_listController@product_list'); //商品展示
+        Route::any('/product_list','Index\Product_listController@product_list'); //商品展示
         Route::get('/product_details/{good_id}','Index\Product_listController@product_details');   //商品详情
 
 
-
-
           //商品详情
+        Route::prefix('/cart')->group(function (){  //购物车
+           Route::get('/addcart','Index\CartController@addcart');  //加入购物车
+            Route::get('/index','Index\CartController@cartList');  //购物车页面
+        });
+
         Route::get('/wishlist_list','Index\WishController@wishlist');  //我的收藏
         //评价
         Route::post('/comment','Index\CommentController@comment');
-
         Route::get('/collect','Index\Product_listController@collect'); //收藏
-        //Route::('/wishlist_list','Index\Product_listController@product_details');   //商品详情
-
-
+        Route::get('/alipay/yonghu','AliController@yonghu'); //github视图
         Route::get('github','GitHubController@index'); //github视图
         Route::get('github/callback','GitHubController@callback'); //github回调
         Route::get('alipay','AliController@alipay'); //支付
@@ -85,18 +85,15 @@
     //    登录
         Route::view('/login','Index.login');
         Route::post('/login','Index\IndexController@login');
+        Route::get('/quit','Index\IndexController@quit');
     //    注册
         Route::view('/register','Index.register');
         Route::post('/register','Index\IndexController@register');
 
+    //获取验证码
+        Route::post('/verify_code','Index\IndexController@verify_code');
     //    定时任务 <视频转码>
 	Route::get('/vedioCron','Index\VedioCron@codec');
-
-        Route::get('/back/pwd','Index\BackController@back'); //找回密码
-        Route::post('/back/pwds','Index\BackController@backs'); //找回密码
-        Route::get('/back/resetpass','Index\BackController@resetpass'); //
-        Route::post('/back/reset','Index\BackController@reset'); //
-
 
 //	服务
         Route::view('/Free_shipping','Index.Free_shipping');
