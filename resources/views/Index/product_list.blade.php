@@ -8,10 +8,11 @@
                 <h3>商品展示</h3>
             </div>
             <div class="input">
-                <form action="{{url('/product_list')}}" method="get">
-                    <input type="text" name="s" value="{{@$_GET['s']}}" placeholder="搜索/商品/商品关键字">
-                </form>
+                <input type="text" goods_name="name"  placeholder="搜索/商品/商品关键字">
+{{--                value="{{@$_POST['name']}}"--}}
+                <button type="button" id="bin" class="btn btn-default">点我搜索哦~~~</button>
             </div>
+
             <div class="row">
                 @foreach($data as $v)
 
@@ -20,7 +21,7 @@
                         <img src="/storage/{{$v['goods_img']}}" alt="">
                         <h6><a href="">{{$v['goods_name']}}</a></h6>
                         <div class="price">
-                            {{$v['shop_price']}} <span>$28</span>
+                            {{$v['shop_price']}}
                         </div>
                         <a href="{{url('/index/addcart/'.$v['goods_id'])}}"><button type="button" class="btn button-default">加入购物车</button></a>
                     </div>
@@ -31,9 +32,13 @@
             </div>
 
 
-                {{ $data->appends(['s'=>$_GET['s']])->links() }}
+{{--                {{ $data->appends(['name'=>$_GET['name']])->links() }}--}}
 
         </div>
     </div>
     <!-- end product_list -->
 @endsection
+
+
+
+

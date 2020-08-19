@@ -26,7 +26,7 @@
         });
     });
 
-    Route::domain(env('ITEM_HOSTS_HTTP'))->group(function () {
+    Route::domain(env('`ITEM_HOSTS_HTTP`'))->group(function () {
 
         Route::get('/','Index\Product_listController@index'); //前台展示
     //    商品
@@ -45,7 +45,11 @@
         Route::get('/index','Index\CartController@cartList');  //购物车页面
     });
         Route::prefix('/order')->group(function (){  //订单
+            Route::get('/queren','Index\OrderController@queren');
             Route::get('/generate','Index\OrderController@generate');
+            Route::any('/orderSubmit','Index\OrderController@orderSubmit');
+
+
         });
 
 
@@ -55,7 +59,7 @@
         Route::get('/','Index\Product_listController@index'); //前台首页展示
 
         //   商品
-        Route::get('/product_list','Index\Product_listController@product_list'); //商品展示
+        Route::any('/product_list','Index\Product_listController@product_list'); //商品展示
         Route::get('/product_details/{good_id}','Index\Product_listController@product_details');   //商品详情
 
 
@@ -69,6 +73,7 @@
         Route::get('/collect','Index\Product_listController@collect'); //收藏
         //Route::('/wishlist_list','Index\Product_listController@product_details');   //商品详情
 
+        Route::get('/alipay/yonghu','AliController@yonghu'); //github视图
 
         Route::get('github','GitHubController@index'); //github视图
         Route::get('github/callback','GitHubController@callback'); //github回调
