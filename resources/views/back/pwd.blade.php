@@ -1,27 +1,22 @@
 @extends('layouts.app')
 @section('title', '前台')
 @section('content')
-    <!-- setting -->
     <div class="pages section">
         <div class="container">
             <div class="pages-head">
-                <h3>个人中心</h3>
+                <h3>找回密码</h3>
             </div>
             <div class="register">
                 <div class="row">
-                    <form class="col s12">
-                    <h2>安全设置</h2>
+                    <form class="col s12" action="/back/pwds" method="post">
                         <div class="input-field">
-                           <h4> <a href="\findpass">修改密码</a></h4>
+                            <input type="text" name="email" class="validate" placeholder="请输入邮箱" required>
                         </div>
-                             <p></p>
-                        <div>
-                        </div>
-                        
+                        <input class="btn button-default" type="submit">
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <!-- end setting -->
+
 @endsection

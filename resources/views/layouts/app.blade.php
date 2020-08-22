@@ -22,8 +22,11 @@
     <link rel="stylesheet" href="/Index/css/aliplayer-min.css">
     <link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.8.8/skins/default/aliplayer-min.css" />
     <script type="text/javascript" charset="utf-8" src="https://g.alicdn.com/de/prismplayer/2.8.8/aliplayer-min.js"></script>
+    <script src="/Index/js/jscookie.min.js"></script>
+    <script src="/Index/js/init.js"></script>
+
     <script src="/Index/js/jquery.min.js"></script>
-   
+
 
 </head>
 <body>
@@ -52,15 +55,14 @@
         <li><a href="{{url('index/setting')}}"><i class="fa fa-cog"></i>个人信息</a></li>
         <li><a href="{{url('index/about_us')}}"><i class="fa fa-user"></i>About Us</a></li>
         <li><a href="{{url('index/contact')}}"><i class="fa fa-envelope-o"></i>联系客服</a></li>
-        <li><a href="{{url('/register')}}"><i class="fa fa-user-plus"></i>注册</a></li>
-        <li><a href="{{url('/login')}}"><i class="fa fa-sign-in"></i>登录</a></li>
+        <li><a href="{{url('/quit')}}"><i class="fa fa-sign-in"></i>退出</a></li>
     </ul>
     <?php }else{?>
         <ul id="slide-out-right" class="side-nav side-nav-panel collapsible">
             <li class="profil">
                 <img src="/Index/img/profile.jpg" alt="">
             </li>
-            <li><a href="{{url('/login')}}"><i class="fa fa-sign-in"></i>登录</a></li>
+            <li>请，<a href="{{url('/login')}}"><i class="fa fa-sign-in"></i>登录</a></li>
             <li><a href="{{url('/register')}}"><i class="fa fa-user-plus"></i>注册</a></li>
         </ul>
     <?php }?>
@@ -78,7 +80,7 @@
         </div>
         <div class="col s4">
             <div class="bar-center">
-                <a href="#animatedModal" id="cart-menu"><i class="fa fa-shopping-basket"></i></a>
+                <a href="{{url('cart/index')}}"><i class="fa fa-shopping-basket"></i></a>
                 <span>2</span>
             </div>
         </div>
@@ -380,6 +382,7 @@
 <script src="/Index/js/animatedModal.min.js"></script>
 <script src="/Index/js/main.js"></script>
 <script src="/Index/js/js.cookie-2.2.1.min.js"></script>
-<script src="/Index/js/init.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-message-box@3.2.2/dist/messagebox.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://g.alicdn.com/de/prismplayer/2.8.8/aliplayer-min.js"></script>
 </body>
 </html>
