@@ -69,6 +69,10 @@
         Route::get('github','GitHubController@index'); //github视图
         Route::get('github/callback','GitHubController@callback'); //github回调
         Route::get('alipay','AliController@alipay'); //支付
+        Route::get('center','LinkageController@center'); //个人中心
+        Route::any('area','LinkageController@area'); //三级联动
+        
+
 
 
         Route::view('/checkout','Index.checkout');  //支付
